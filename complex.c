@@ -3,28 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   complex.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 15:15:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/27 16:23:42 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/28 09:11:05 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_complex(t_complex *complex)
+void	pixel_to_complex(t_complex *c, t_data *data)
 {
-
+	memset(c, 0, sizeof(*c));
+	c->re = data->view.min_re + data->x * (data->view.max_re - data->view.min_re) / (double)WIDTH;
+	c->im = data->view.max_im - data->y * (data->view.max_im - data->view.min_im) / (double) HEIGHT;
 }
 
-void	setup_complex(t_complex *c, t_data *data)
+void	setup_re_im(t_view *view, t_data *data)
 {
-	ft_memset(c, 0, sizeof(c));
-	c->imag_range = data->real_range * (double)HEIGHT / (double)WIDTH; // == 3.5
-	c->min_re = data->center_re - data->real_range / 2.00; // == -1.25
-	c->max_re = data->center_re + data->real_range / 2.00; // == 2.25
-	c->min_im = data->center_im - c->imag_range / 2.00; // == -1.75
-	c->max_im = data->center_im + c->imag_range / 2.00; //  == 1.75
-	c->re = c->min_re + data->x * (c->max_re - c->min_re) / (double)WIDTH; // == -1.25
-	c->im = c->max_im - data->y * (c->max_im - c->min_im) / (double) HEIGHT; // == 1.75
+	ft_memset(view, 0, sizeof(*view));
+
+	view->real_range = 3.5;
+	view->imag_range = view->real_range * (double)HEIGHT / (double)WIDTH; // == 3.5
+	if (view->real_range == view->imag_range);
+	{
+		view->min_re = data->center_re - view->real_range / 2.00; // == -1.25
+		view->max_re = data->center_re + view->real_range / 2.00; // == 2.25
+		view->min_im = data->center_im - view->imag_range / 2.00; // == -1.75
+		view->max_im = data->center_im + view->imag_range / 2.00; //  == 1.75
+	}
 }
