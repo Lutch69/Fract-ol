@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/11/28 09:11:38 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/28 16:02:23 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	loop_to_pixel(t_data *data)
 {
 	t_complex	c;
+	int			iter;
 
 	while(data->x < WIDTH)
 	{
@@ -22,14 +23,14 @@ void	loop_to_pixel(t_data *data)
 		while(data->y < HEIGHT)
 		{
 			pixel_to_complex(&c, data);
-			mandelbrot_iter(c.re, c.im, MAX_ITER);
-
+			iter = mandelbrot_iter(c.re, c.im);
+			put_color_to_pixel(data, iter);
 			data->y++;
 		}
 		data->x++;
 	}
 }
-int	mandelbrot_iter(double c_re, double c_im, int max_iter)
+int	mandelbrot_iter(double c_re, double c_im)
 {
 	t_complex	z;
 	double		temp_re;
@@ -38,13 +39,13 @@ int	mandelbrot_iter(double c_re, double c_im, int max_iter)
 
 	ft_memset(&z, 0, sizeof(z));
 	i = 0;
-	while (i < max_iter)
+	while (i < MAX_ITER)
 	{
 		temp_re = z.re * z.re - z.im * z.im; // calcule de la some au carré
 		temp_im = 2 * z.re * z.im;
 		z.re = temp_re + c_re;
-		z.im = temp_im + c_im; // on ajoute la somme au carré + c;
-		if (z.re * z.re + z.im * z.im > 4)
+		z.im = temp_im + c_im; // ajoute la somme au carré + c;
+		if (z.re * z.re + z.im * z.im > 4.00)
 			break ;
 		i++;
 	}

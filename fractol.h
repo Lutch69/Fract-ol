@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/28 09:09:17 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/28 15:50:05 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,18 @@
 # define MAX_ITER 200
 # endif
 
-// # include "minilibx-linux/mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "../libft/libft.h"
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
+
+// typedef struct s_color
+// {
+// 	int	R;
+// 	int	G;
+// 	int	B;
+// }			t_color;
 
 typedef struct s_complex
 {
@@ -65,8 +72,10 @@ typedef struct s_data
 	t_view		view;
 }				t_data;
 
-int	mandelbrot_iter(double c_re, double c_im, int max_iter);
+int		mandelbrot_iter(double c_re, double c_im);
 void	pixel_to_complex(t_complex *c, t_data *data);
 void	setup_re_im(t_view *view, t_data *data);
+void	put_color_to_pixel(t_data *data, int iter);
+void	loop_to_pixel(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:22:24 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/27 14:10:25 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:08:50 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	main(void)
 
 	t_data data;
 	set_updata(&data);
-	data.x_decal = data.x - data.cx;
-	data.y_decal = data.y - data.cy;
 	mlx_ptr = mlx_init();// initialiser la connexion avec le systeme graphique
 	win_ptr = mlx_new_window(mlx_ptr, data.size_x, data.size_y, "MLX 42"); // creer une fenetre (connexion, largeur, hauteur, titre)
 	while(data.y < 150)
@@ -68,6 +66,4 @@ int	main(void)
 	return(0);
 }
 
-/*Et pour compiler, tu devras lier avec plusieurs bibliothèques :
-```
--Lminilibx-linux -lmlx -lXext -lX11 -lm*/
+// -Lminilibx-linux -lmlx -lXext -lX11 -lm
