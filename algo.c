@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/11/29 09:38:18 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/29 11:42:47 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	loop_to_pixel(t_data *data)
 {
 	t_complex	c;
 	int			iter;
-	int			color;
 
 	while(data->x < WIDTH)
 	{
@@ -25,8 +24,7 @@ void	loop_to_pixel(t_data *data)
 		{
 			pixel_to_complex(&c, data);
 			iter = mandelbrot_iter(c.re, c.im);
-			color = put_color_to_pixel(data, iter);
-			
+			put_color_to_pixel(data, iter);
 			data->y++;
 		}
 		data->x++;

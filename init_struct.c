@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex.c                                          :+:      :+:    :+:   */
+/*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/27 15:15:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/28 16:04:21 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
+/*   Updated: 2025/11/29 13:37:18 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	init_color(t_color *color, int iter)
+{
+	ft_memset(color, 0, sizeof(color));
+	color->R = (iter * 5) % 255;
+	color->G = (iter * 10)% 255;
+	color->B = (iter * 20)% 255;
+}
+
+void init_image(t_data *data)
+{
+	data->img.ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
+	data->img.addr = mlx_get_data_addr(data->img.ptr, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
+}
 
 void	pixel_to_complex(t_complex *c, t_data *data)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/29 10:14:48 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/29 13:52:49 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # define FRACTOL_H
 
 # ifndef WIDTH
-#  define WIDTH 800
+#  define WIDTH 1600
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 800
+#  define HEIGHT 1600
 # endif
 
 #ifndef MAX_ITER
@@ -32,60 +32,13 @@
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
-
-typedef struct s_img
-{
-	void	*ptr;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_img;
-
-typedef struct s_color
-{
-	int	R;
-	int	G;
-	int	B;
-}			t_color;
-
-typedef struct s_complex
-{
-	double	re;
-	double	im;
-
-}			t_complex;
-
-typedef struct	s_view
-{
-	double	real_range;
-	double	imag_range;
-	double	min_re;
-	double	max_re;
-	double	min_im;
-	double	max_im;
-}			t_view;
-
-typedef struct s_data
-{
-	int			x;
-	int			y;
-
-	void		*mlx_ptr;
-	void		*win_ptr;
-
-	double		center_re;
-	double		center_im;
-	double		zoom;
-
-	t_view		view;
-	t_img		img;
-}				t_data;
+# include "struct.h"
 
 int		mandelbrot_iter(double c_re, double c_im);
 void	pixel_to_complex(t_complex *c, t_data *data);
 void	setup_re_im(t_view *view, t_data *data);
 void	put_color_to_pixel(t_data *data, int iter);
 void	loop_to_pixel(t_data *data);
+void	init_color(t_color *color, int iter);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/11/28 15:41:17 by ludebarn         ###   ########.fr        #
+#    Updated: 2025/11/29 11:42:28 by ludebarn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_DIR = object
 SRC_DIR = src
 
 # Files src mandatory
-SRCS = complex.c fractol.c algo.c color.c
+SRCS = init_struct.c fractol.c algo.c color.c
 
 # Objects
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
