@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/29 11:24:57 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:34:39 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ typedef struct	s_view
 	double	max_im;
 }			t_view;
 
+typedef struct s_mouse
+{
+	int	x;
+	int	y;
+	double	ratio_x;
+	double	ratio_y;
+	double	complex_y;
+	double	complex_x;
+
+}		t_mouse;
+
 typedef struct s_data
 {
 	int			x;
@@ -60,6 +71,7 @@ typedef struct s_data
 
 	t_view		view;
 	t_img		img;
+	t_mouse		mouse;
 }				t_data;
 
 #endif

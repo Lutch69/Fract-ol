@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/29 13:52:49 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:40:14 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 # define FRACTOL_H
 
 # ifndef WIDTH
-#  define WIDTH 1600
+#  define WIDTH 1200
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 1600
+#  define HEIGHT 1200
 # endif
 
 #ifndef MAX_ITER
-# define MAX_ITER 200
+# define MAX_ITER 100
 # endif
 
 # include "minilibx-linux/mlx.h"
@@ -34,11 +34,20 @@
 # include <stdlib.h>
 # include "struct.h"
 
+int		put_color_to_pixel(int iter);
+int		render(t_data *data);
 int		mandelbrot_iter(double c_re, double c_im);
 void	pixel_to_complex(t_complex *c, t_data *data);
-void	setup_re_im(t_view *view, t_data *data);
-void	put_color_to_pixel(t_data *data, int iter);
-void	loop_to_pixel(t_data *data);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+int		mouse_hook(int button, int x, int y, void *param);
+int		mouse_move(int x, int y, void *param);
+
+// set up struct
+void	setup_re_im(t_data *data, int flag);
 void	init_color(t_color *color, int iter);
+void	init_image(t_data *data);
+void	setup_data(t_data *data);
+void	range_setup (t_data *data);
+void	set_up_center(t_data *data);
 
 #endif

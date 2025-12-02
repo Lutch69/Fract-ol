@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/29 13:37:18 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:40:55 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 void	init_color(t_color *color, int iter)
 {
 	ft_memset(color, 0, sizeof(color));
-	color->R = (iter * 5) % 255;
-	color->G = (iter * 10)% 255;
-	color->B = (iter * 20)% 255;
+	color->R = (iter * 5) % 128;
+	color->G = (iter * 10) % 255;
+	color->B = (iter * 20) % 255;
 }
 
 void init_image(t_data *data)
 {
+	ft_memset(&data->img, 0, sizeof(&data->img));
 	data->img.ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
 	data->img.addr = mlx_get_data_addr(data->img.ptr, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
 }
@@ -33,18 +34,34 @@ void	pixel_to_complex(t_complex *c, t_data *data)
 	c->im = data->view.max_im - data->y * (data->view.max_im - data->view.min_im) / (double) HEIGHT;
 }
 
-void	setup_re_im(t_view *view, t_data *data)
+void	range_setup (t_data *data)
 {
-	ft_memset(view, 0, sizeof(*view));
+	data->view.real_range = 3.5 / data->zoom;
+	data->view.imag_range = data->view.real_range * (double)HEIGHT / (double)WIDTH;
+}
 
-	view->real_range = 3.5;
-	view->imag_range = view->real_range * (double)HEIGHT / (double)WIDTH; // == 3.5
-	if (view->real_range == view->imag_range)
-	{
-		view->min_re = data->center_re - view->real_range / 2.00; // == -1.25
-		view->max_re = data->center_re + view->real_range / 2.00; // == 2.25
-		view->min_im = data->center_im - view->imag_range / 2.00; // == -1.75
-		view->max_im = data->center_im + view->imag_range / 2.00; //  == 1.75
-		data->view = *view;
-	}
+void	setup_re_im(t_data *data, int flag)
+{
+	range_setup(data);
+	if (flag == 1)
+		set_up_center(data);
+	data->view.min_re = data->center_re - data->view.real_range / 2.00; // == -1.25
+	data->view.max_re = data->center_re + data->view.real_range / 2.00; // == 2.25
+	data->view.min_im = data->center_im - data->view.imag_range / 2.00; // == -1.75
+	data->view.max_im = data->center_im + data->view.imag_range / 2.00; //  == 1.75
+}
+void set_up_center(t_data *data)
+{
+	data->center_re = data->mouse.complex_x - (data->mouse.ratio_x * data->view.real_range);
+	data->center_im = data->mouse.complex_y - (data->mouse.ratio_y * data->view.imag_range);
+}
+
+void	setup_data(t_data *data)
+{
+	ft_memset(data, 0, sizeof(data));
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "Fract-ol");
+	data->zoom = 1.00;
+	data->center_re = -0.5;
+	data->center_im = 0.00;
 }
