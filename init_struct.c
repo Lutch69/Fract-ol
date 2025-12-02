@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/02 15:40:55 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:48:16 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void init_image(t_data *data)
 	data->img.addr = mlx_get_data_addr(data->img.ptr, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
 }
 
+//setup les pixel en coordonnees complex
 void	pixel_to_complex(t_complex *c, t_data *data)
 {
 	ft_memset(c, 0, sizeof(*c));
@@ -34,23 +35,25 @@ void	pixel_to_complex(t_complex *c, t_data *data)
 	c->im = data->view.max_im - data->y * (data->view.max_im - data->view.min_im) / (double) HEIGHT;
 }
 
+//nouveau setup dans du range de l'image par rapport au zoom
 void	range_setup (t_data *data)
 {
 	data->view.real_range = 3.5 / data->zoom;
 	data->view.imag_range = data->view.real_range * (double)HEIGHT / (double)WIDTH;
 }
 
+//setup la range de la fractale
 void	setup_re_im(t_data *data, int flag)
 {
 	range_setup(data);
 	if (flag == 1)
-		set_up_center(data);
-	data->view.min_re = data->center_re - data->view.real_range / 2.00; // == -1.25
-	data->view.max_re = data->center_re + data->view.real_range / 2.00; // == 2.25
-	data->view.min_im = data->center_im - data->view.imag_range / 2.00; // == -1.75
-	data->view.max_im = data->center_im + data->view.imag_range / 2.00; //  == 1.75
+		setup_center(data); // re setup le centre im et re par rapport a l'index du curseur
+	data->view.min_re = data->center_re - data->view.real_range / 2.00;
+	data->view.max_re = data->center_re + data->view.real_range / 2.00;
+	data->view.min_im = data->center_im - data->view.imag_range / 2.00;
+	data->view.max_im = data->center_im + data->view.imag_range / 2.00;
 }
-void set_up_center(t_data *data)
+void setup_center(t_data *data)
 {
 	data->center_re = data->mouse.complex_x - (data->mouse.ratio_x * data->view.real_range);
 	data->center_im = data->mouse.complex_y - (data->mouse.ratio_y * data->view.imag_range);

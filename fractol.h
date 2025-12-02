@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/02 15:40:14 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/02 15:45:40 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	init_color(t_color *color, int iter);
 void	init_image(t_data *data);
 void	setup_data(t_data *data);
 void	range_setup (t_data *data);
-void	set_up_center(t_data *data);
+void	setup_center(t_data *data);
 
 #endif
