@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/02 15:48:16 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:57:54 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	init_color(t_color *color, int iter)
 {
 	ft_memset(color, 0, sizeof(color));
-	color->R = (iter * 5) % 128;
-	color->G = (iter * 10) % 255;
-	color->B = (iter * 20) % 255;
+	color->R = (iter * 50) % 255;
+	color->G = (iter * 5) % 128;
+	color->B = (iter * 5) % 128;
 }
 
 void init_image(t_data *data)
@@ -55,8 +55,13 @@ void	setup_re_im(t_data *data, int flag)
 }
 void setup_center(t_data *data)
 {
+	printf("AVANT: center_re = %f, center_im = %f\n", data->center_re, data->center_im);
+	printf("complex_x = %f, complex_y = %f\n", data->mouse.complex_x, data->mouse.complex_y);
+	printf("ratio_x = %f, ratio_y = %f\n", data->mouse.ratio_x, data->mouse.ratio_y);
+	printf("range: real = %f, imag = %f\n", data->view.real_range, data->view.imag_range);
 	data->center_re = data->mouse.complex_x - (data->mouse.ratio_x * data->view.real_range);
-	data->center_im = data->mouse.complex_y - (data->mouse.ratio_y * data->view.imag_range);
+	data->center_im = data->mouse.complex_y + (data->mouse.ratio_y * data->view.imag_range);
+	printf("APRES: center_re = %f, center_im = %f\n\n", data->center_re, data->center_im);
 }
 
 void	setup_data(t_data *data)

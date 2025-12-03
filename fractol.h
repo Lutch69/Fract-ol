@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/02 15:45:40 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:59:33 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 # define FRACTOL_H
 
 # ifndef WIDTH
-#  define WIDTH 1200
+#  define WIDTH 300
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 1200
+#  define HEIGHT 300
 # endif
 
 #ifndef MAX_ITER
-# define MAX_ITER 100
+# define MAX_ITER 1000
 # endif
 
 # include "minilibx-linux/mlx.h"
@@ -33,6 +33,7 @@
 # include <math.h>
 # include <stdlib.h>
 # include "struct.h"
+# include "event.h"
 
 int		put_color_to_pixel(int iter);
 int		render(t_data *data);
