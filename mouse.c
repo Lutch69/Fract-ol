@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/02 15:38:28 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/03 09:23:10 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	mouse_to_complex(t_data *data)
 	data->mouse.complex_x = data->view.min_re + (data->mouse.x / WIDTH) * (data->view.max_re - data->view.min_re);
 	data->mouse.complex_y = data->view.min_im - (data->mouse.y / HEIGHT) * (data->view.max_im - data->view.min_im);
 	data->mouse.ratio_x = (data->mouse.x - WIDTH / 2.0) / WIDTH;
-	data->mouse.ratio_x = (data->mouse.y - HEIGHT / 2.0) / HEIGHT;
+	data->mouse.ratio_y = (data->mouse.y - HEIGHT / 2.0) / HEIGHT;
 }
 
 int	mouse_hook(int button, int x, int y, void *param)
