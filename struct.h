@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/03 17:54:51 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/04 12:30:35 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+enum
+{
+	MANDELBROT = 1,
+	JULIA = 2
+};
 
 typedef struct s_img
 {
@@ -59,6 +65,8 @@ typedef struct s_mouse
 
 typedef struct s_data
 {
+	int			ac;
+	char		**av;
 	int			x;
 	int			y;
 
@@ -68,6 +76,7 @@ typedef struct s_data
 	double		center_re;
 	double		center_im;
 	double		zoom;
+	double		step;
 
 	t_view		view;
 	t_img		img;
