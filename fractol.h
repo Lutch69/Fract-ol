@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/04 12:10:41 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 22:32:05 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,21 @@
 # endif
 
 #ifndef MAX_ITER
-# define MAX_ITER 200
+# define MAX_ITER 1000
 # endif
 
-# include "mlx.h"
-# include "../libft/libft.h"
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
+# include <time.h>
+# include "mlx.h"
+# include "../libft/libft.h"
+# include "../printf/ft_printf.h"
 # include "struct.h"
 # include "event.h"
 
 int		put_color_to_pixel(int iter);
 int		render(t_data *data);
-int		mandelbrot_iter(double c_re, double c_im);
 void	pixel_to_complex(t_complex *c, t_data *data);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		mouse_hook(int button, int x, int y, void *param);
@@ -45,6 +46,11 @@ int		mouse_move(int x, int y, void *param);
 int		key_press(int keycode, void *param);
 void	define_view(t_data *data, int keycode);
 int		close_prog(void *param);
+void	print_usage(void);
+int		define_fractale(int ac, char **av, t_data *data);
+int		check_float(char *av);
+void	is_julia(int ac, char **av, t_data *data);
+double	ft_atof(char *str); // A mettre dans libft
 
 // set up struct
 void	setup_re_im(t_data *data, int flag);

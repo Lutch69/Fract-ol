@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 14:37:28 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/04 10:15:53 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 22:40:35 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@
 
 #ifdef MACOS
 	# define KEY_ESC 53
-	# define KEY_LEFT 123
-	# define KEY_RIGHT 124
-	# define KEY_UP 126
-	# define KEY_DOWN 125
-	# define KEY_PLUS 69
-	# define KEY_MINUS 78
+	# define KEY_LEFT 0
+	# define KEY_RIGHT 2
+	# define KEY_UP 13
+	# define KEY_DOWN 1
+	# define KEY_PLUS 126
+	# define KEY_MINUS 125
 	# define MOUSE_MASK 0
 #endif
 

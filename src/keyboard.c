@@ -6,26 +6,28 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/04 12:15:55 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 22:37:46 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-// Close et free le programme
-int	close_prog(void *param)
-{
-	t_data *data;
-
-	data = (t_data *)param;
-	mlx_destroy_image(data->mlx_ptr, data->img.ptr);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	free(data->mlx_ptr);
-	exit(0);
-}
 // Fonction de déplacement grace au flèches
 void	define_view(t_data *data, int keycode)
 {
+	printf ("%d\n", keycode);
+	if (keycode == KEY_PLUS)
+	{
+		data->zoom *= 1.1;
+		setup_re_im(data, 1);
+	}
+	else if (keycode == KEY_MINUS)
+	{
+		data->zoom /= 1.2;
+		if (data->zoom < 0.1)
+			data->zoom = 0.1;
+		setup_re_im(data, 1);
+	}
 	if (keycode == KEY_LEFT)
 		data->center_re -= data->step;
 	if (keycode == KEY_RIGHT)

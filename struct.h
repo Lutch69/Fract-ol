@@ -6,18 +6,18 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/04 12:30:35 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 22:07:57 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-enum
+typedef enum e_fractal_type
 {
-	MANDELBROT = 1,
-	JULIA = 2
-};
+	MANDELBROT =	1,
+	JULIA = 		2
+}					t_fractal_type;
 
 typedef struct s_img
 {
@@ -35,12 +35,18 @@ typedef struct s_color
 	int	B;
 }			t_color;
 
+
+
 typedef struct s_complex
 {
 	double	re;
 	double	im;
-
 }			t_complex;
+
+typedef struct s_julia
+{
+	t_complex	complex;
+}				t_julia;
 
 typedef struct	s_view
 {
@@ -65,22 +71,24 @@ typedef struct s_mouse
 
 typedef struct s_data
 {
-	int			ac;
-	char		**av;
-	int			x;
-	int			y;
+	int				ac;
+	char			**av;
+	int				x;
+	int				y;
 
-	void		*mlx_ptr;
-	void		*win_ptr;
+	void			*mlx_ptr;
+	void			*win_ptr;
 
-	double		center_re;
-	double		center_im;
-	double		zoom;
-	double		step;
+	double			center_re;
+	double			center_im;
+	double			zoom;
+	double			step;
 
-	t_view		view;
-	t_img		img;
-	t_mouse		mouse;
-}				t_data;
+	t_view			view;
+	t_img			img;
+	t_mouse			mouse;
+	t_fractal_type	fractal_type;
+	t_julia			julia;
+}					t_data;
 
 #endif

@@ -6,7 +6,7 @@
 #    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/12/04 12:50:59 by lucasdebarn      ###   ########.fr        #
+#    Updated: 2025/12/05 21:29:45 by lucasdebarn      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ_DIR = object
 SRC_DIR = src
 
 # Fichiers .c
-SRCS = init_struct.c fractol.c algo.c color.c mouse.c keyboard.c
+SRCS = init_struct.c fractol.c algo.c color.c mouse.c keyboard.c parsing.c ft_atof.c
 
 # Chemins complets vers les fichiers source
 SRC_FILES = $(addprefix $(SRC_DIR)/,$(SRCS))
@@ -69,16 +69,10 @@ INCLUDES += -I $(MLX_DIR)
 LIBRARY_PATH = -L$(LIBFT) -L$(PRINTF)
 LIBRARIES = -lft
 
-# **************************************************************************** #
-#                                 MESSAGES                                     #
-# **************************************************************************** #
-
+# Custom
 COMPILE_MSG = @printf "."
 
-# **************************************************************************** #
-#                                  RÈGLES                                      #
-# **************************************************************************** #
-
+# Rules
 all: $(NAME)
 
 # Compilation de l'exécutable principal

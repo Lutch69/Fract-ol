@@ -6,33 +6,27 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/04 12:22:00 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 22:15:12 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
 // Initialisation des pointeurs pour la creation d'image
-void init_image(t_data *data)
+void	init_image(t_data *data)
 {
 	ft_memset(&data->img, 0, sizeof(&data->img));
 	data->img.ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
-	data->img.addr = mlx_get_data_addr(data->img.ptr, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
-}
-
-//setup les pixel en coordonnees complex
-void	pixel_to_complex(t_complex *c, t_data *data)
-{
-	ft_memset(c, 0, sizeof(*c));
-	c->re = data->view.min_re + data->x * (data->view.max_re - data->view.min_re) / (double)WIDTH;
-	c->im = data->view.max_im - data->y * (data->view.max_im - data->view.min_im) / (double) HEIGHT;
+	data->img.addr = mlx_get_data_addr(data->img.ptr, &data->img.bits_per_pixel,
+			&data->img.line_length, &data->img.endian);
 }
 
 // Nouveau setup dans du range de l'image par rapport au zoom
-void	range_setup (t_data *data)
+void	range_setup(t_data *data)
 {
 	data->view.real_range = 3.5 / data->zoom;
-	data->view.imag_range = data->view.real_range * (double)HEIGHT / (double)WIDTH;
+	data->view.imag_range = data->view.real_range * (double)HEIGHT
+		/ (double)WIDTH;
 }
 
 // Setup des limites imaginaire et réel pour le positionement dans la fractale
@@ -48,15 +42,12 @@ void	setup_re_im(t_data *data, int flag)
 }
 
 // Setup du centre imaginaire et réel
-void setup_center(t_data *data)
+void	setup_center(t_data *data)
 {
-	// printf("AVANT: center_re = %f, center_im = %f\n", data->center_re, data->center_im);
-	// printf("complex_x = %f, complex_y = %f\n", data->mouse.complex_x, data->mouse.complex_y);
-	// printf("ratio_x = %f, ratio_y = %f\n", data->mouse.ratio_x, data->mouse.ratio_y);
-	// printf("range: real = %f, imag = %f\n", data->view.real_range, data->view.imag_range);
-	data->center_re = data->mouse.complex_x - (data->mouse.ratio_x * data->view.real_range);
-	data->center_im = data->mouse.complex_y + (data->mouse.ratio_y * data->view.imag_range);
-	// printf("APRES: center_re = %f, center_im = %f\n\n", data->center_re, data->center_im);
+	data->center_re = data->mouse.complex_x - (data->mouse.ratio_x
+			* data->view.real_range);
+	data->center_im = data->mouse.complex_y + (data->mouse.ratio_y
+			* data->view.imag_range);
 }
 
 // Initialisation de la data
@@ -68,6 +59,5 @@ void	setup_data(t_data *data, int ac, char **av)
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "Fract-ol");
 	data->zoom = 1.00;
-	data->center_re = -0.5;
 	data->center_im = 0.00;
 }

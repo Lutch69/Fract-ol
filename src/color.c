@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/04 12:17:49 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 13:51:55 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ void	init_color(t_color *color, int iter)
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
+
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
-// Fonction pour coloré les pixels par rapport au positionnement dans la fractal 
-int		put_color_to_pixel(int iter)
+
+// Fonction pour coloré les pixels par rapport au positionnement dans la fractal
+int	put_color_to_pixel(int iter)
 {
-	t_color color;
-	int	color_pix;
+	t_color	color;
+	int		color_pix;
+
 	init_color(&color, iter);
 	color_pix = (color.R << 16) | (color.G << 8) | color.B;
-	return(color_pix);
+	return (color_pix);
 }
