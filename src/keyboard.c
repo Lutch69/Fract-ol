@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/05 22:37:46 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/05 22:51:43 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	define_view(t_data *data, int keycode)
 	if (keycode == KEY_PLUS)
 	{
 		data->zoom *= 1.1;
-		setup_re_im(data, 1);
+		setup_re_im(data, 0);
 	}
 	else if (keycode == KEY_MINUS)
 	{
 		data->zoom /= 1.2;
 		if (data->zoom < 0.1)
 			data->zoom = 0.1;
-		setup_re_im(data, 1);
+		setup_re_im(data, 0);
 	}
 	if (keycode == KEY_LEFT)
 		data->center_re -= data->step;
