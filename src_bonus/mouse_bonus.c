@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse.c                                            :+:      :+:    :+:   */
+/*   mouse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 15:34:35 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/06 16:57:09 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 // Fonction d'évènement pour déplacement du curseur
 int	mouse_move(int x, int y, void *param)
@@ -39,6 +39,7 @@ int	mouse_hook(int button, int x, int y, void *param)
 
 	(void)x;
 	(void)y;
+	if (button == )
 	data = (t_data *)param;
 	mouse_to_complex(data);
 	if (button == ON_MOUSEDOWN)

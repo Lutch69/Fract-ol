@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 14:37:28 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/05 22:58:12 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/06 11:58:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@
 	# define KEY_RIGHT 65363
 	# define KEY_UP 65362
 	# define KEY_DOWN 65364
-	# define KEY_PLUS 65451 // a changer pour W
-	# define KEY_MINUS 65453 // a changer pour S
+	# define KEY_PLUS 119
+	# define KEY_MINUS 115
+	# define KEY_PRESS 2
+	# define KEY_PRESSMASK 1L << 0
 	# define MOUSE_MASK 1L << 6
 #endif
 
@@ -38,6 +40,7 @@
 	# define KEY_DOWN 125
 	# define KEY_PLUS 13
 	# define KEY_MINUS 1
+	# define KEY_PRESSMASK 0
 	# define MOUSE_MASK 0
 #endif
 

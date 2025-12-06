@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
+#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/12/05 21:29:45 by lucasdebarn      ###   ########.fr        #
+#    Updated: 2025/12/06 16:10:11 by ludebarn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ_DIR = object
 SRC_DIR = src
 
 # Fichiers .c
-SRCS = init_struct.c fractol.c algo.c color.c mouse.c keyboard.c parsing.c ft_atof.c
+SRCS = init_struct.c fractol.c algo.c color.c mouse.c keyboard.c parsing.c utils.c
 
 # Chemins complets vers les fichiers source
 SRC_FILES = $(addprefix $(SRC_DIR)/,$(SRCS))

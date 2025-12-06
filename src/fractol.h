@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/05 22:32:05 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/06 16:14:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 # include <stdlib.h>
 # include <time.h>
 # include "mlx.h"
-# include "../libft/libft.h"
-# include "../printf/ft_printf.h"
+# include "../../libft/libft.h"
+# include "../../printf/ft_printf.h"
 # include "struct.h"
 # include "event.h"
 
@@ -50,13 +50,14 @@ void	print_usage(void);
 int		define_fractale(int ac, char **av, t_data *data);
 int		check_float(char *av);
 void	is_julia(int ac, char **av, t_data *data);
-double	ft_atof(char *str); // A mettre dans libft
+void	is_mandelbrot(int ac, t_data *data);
+void	event_mlx(t_data *data);
+void	convert_julia(char **av, t_data *data);
 
 // set up struct
 void	setup_re_im(t_data *data, int flag);
 void	init_color(t_color *color, int iter);
 void	init_image(t_data *data);
-void	setup_data(t_data *data, int ac, char **av);
 void	range_setup (t_data *data);
 void	setup_center(t_data *data);
 
