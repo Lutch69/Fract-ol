@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/06 15:52:47 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:30:49 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	define_view(t_data *data, int keycode)
 int	key_press(int keycode, void *param)
 {
 	t_data	*data;
-
 	data = (t_data *)param;
 	data->step = 0.1 / data->zoom;
 	define_view(data, keycode);

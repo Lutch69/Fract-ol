@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 15:52:43 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:52:15 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 void	init_image(t_data *data)
 {
 	ft_memset(&data->img, 0, sizeof(&data->img));
+	data->palette.palette_id == 0;
+	// init_palette(data);
 	data->zoom = 1.00;
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "Fract-ol");
@@ -55,8 +57,9 @@ void	setup_center(t_data *data)
 
 void	event_mlx(t_data *data)
 {
+	mlx_hook(data->win_ptr, ON_MOUSEDOWN, MOUSE_MASK, mouse_hook, data);
+	mlx_hook(data->win_ptr, ON_MOUSEUP, MOUSE_MASK, mouse_button_release, data);
 	mlx_hook(data->win_ptr, ON_MOUSEMOVE, MOUSE_MASK, mouse_move, data);
-	mlx_mouse_hook(data->win_ptr, mouse_hook, data);
 	mlx_hook(data->win_ptr, KEY_PRESS, KEY_PRESSMASK, key_press, data);
 	mlx_hook(data->win_ptr, ON_DESTROY, 0, close_prog, data);
 	mlx_loop_hook(data->mlx_ptr, render, data);

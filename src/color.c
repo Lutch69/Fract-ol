@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 15:33:56 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:57:51 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	init_color(t_color *color, int iter)
 {
 	ft_memset(color, 0, sizeof(color));
-	color->R = (iter * 50) % 255;
+	color->R = (iter * 0) % 255;
 	color->G = (iter * 5) % 128;
 	color->B = (iter * 5) % 128;
 }

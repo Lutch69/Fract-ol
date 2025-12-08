@@ -3,21 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 16:57:09 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 14:01:10 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
+int	mouse_button_release(int button, int x, int y, void *param)
+{
+	t_data *data;
+	(void)x;
+	(void)y;
+	data = (t_data *)param;
+	puts("0");
+	if (button == 1)
+		data->mouse.flag_drag = 0;
+	return (0);
+}
+
+int	mouse_button_press(int x, int y, t_data *data)
+{
+	data->mouse.drag_start_x = x;
+	data->mouse.drag_start_y = y;
+	data->mouse.center_re_start = data->center_re;
+	data->mouse.center_im_start = data->center_im;
+	data->mouse.flag_drag = 1;
+	data->mouse.motion_counter = 0;
+	puts("1");
+	return (0);
+}
 // Fonction d'évènement pour déplacement du curseur
 int	mouse_move(int x, int y, void *param)
 {
 	t_data	*data;
 
 	data = (t_data *)param;
+	data->mouse.motion_counter++;
+	if (data->mouse.flag_drag == 1 && (data->mouse.motion_counter % 2) == 0)
+	{
+		data->mouse.delta_x = x - data->mouse.drag_start_x;
+		data->mouse.delta_y = y - data->mouse.drag_start_y;
+		data->view.deplacement_re = (data->mouse.delta_x / (double)WIDTH) * data->view.real_range;
+		data->view.deplacement_im = -(data->mouse.delta_y / (double)HEIGHT) * data->view.imag_range;
+		data->center_re = data->mouse.center_re_start - data->view.deplacement_re;
+		data->center_im = data->mouse.center_im_start - data->view.deplacement_im;
+		setup_re_im(data, 0);
+	}
 	data->mouse.x = x;
 	data->mouse.y = y;
 	return (0);
@@ -37,11 +71,11 @@ int	mouse_hook(int button, int x, int y, void *param)
 {
 	t_data	*data;
 
-	(void)x;
-	(void)y;
-	if (button == )
 	data = (t_data *)param;
-	mouse_to_complex(data);
+	if (button == 1)
+		mouse_button_press(x, y, data);
+	else
+		mouse_to_complex(data);
 	if (button == ON_MOUSEDOWN)
 	{
 		data->zoom *= 1.1;

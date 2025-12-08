@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 16:51:14 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:39:03 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ typedef struct s_img
 	int		endian;
 }			t_img;
 
-typedef struct s_color
+typedef struct s_color_palette
 {
-	int	R;
-	int	G;
-	int	B;
-}			t_color;
+	double	hue_start;      // Teinte de départ en degrés (0-360)
+	double	hue_range;      // Plage de teintes à parcourir
+	double	saturation;     // Saturation (0.0 à 1.0)
+	double	value;          // Valeur/luminosité (0.0 à 1.0)
+	int		palette_id;     // ID de la palette actuelle
+}   t_color_palette;
+
 
 
 
@@ -56,6 +59,8 @@ typedef struct	s_view
 	double	max_re;
 	double	min_im;
 	double	max_im;
+	double	deplacement_re;
+	double	deplacement_im;
 }			t_view;
 
 typedef struct s_mouse
@@ -66,7 +71,10 @@ typedef struct s_mouse
 	double	ratio_y;
 	double	complex_y;
 	double	complex_x;
+	int		delta_x;
+	int		delta_y;
 	int		flag_drag;
+	int		motion_counter;
 	int		drag_start_x;
 	int		drag_start_y;
 	double	center_re_start;
@@ -92,6 +100,7 @@ typedef struct s_data
 	t_mouse			mouse;
 	t_fractal_type	fractal_type;
 	t_julia			julia;
+	t_color_palette palette;
 }					t_data;
 
 #endif

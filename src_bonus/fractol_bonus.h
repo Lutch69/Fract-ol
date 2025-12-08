@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 16:23:14 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 17:26:18 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # endif
 
 #ifndef MAX_ITER
-# define MAX_ITER 1000
+# define MAX_ITER 400
 # endif
 
 # include <stdio.h>
@@ -35,7 +35,7 @@
 # include "../../libft/libft.h"
 # include "../../printf/ft_printf.h"
 # include "struct_bonus.h"
-# include "../src/event.h"
+# include "../event.h"
 
 int		put_color_to_pixel(int iter);
 int		render(t_data *data);
@@ -53,12 +53,22 @@ void	is_julia(int ac, char **av, t_data *data);
 void	is_mandelbrot(int ac, t_data *data);
 void	event_mlx(t_data *data);
 void	convert_julia(char **av, t_data *data);
+int		mouse_button_press(int x, int y, t_data *data);
+int		mouse_button_release(int button, int x, int y, void *param);
 
 // set up struct
 void	setup_re_im(t_data *data, int flag);
-void	init_color(t_color *color, int iter);
 void	init_image(t_data *data);
 void	range_setup (t_data *data);
 void	setup_center(t_data *data);
 
+// define palette
+void	change_palette(t_data *data);
+void	palette_rainbow(t_color_palette *palette);
+void	palette_cool(t_color_palette *palette);
+void	palette_warm(t_color_palette *palette);
+void	palette_forest(t_color_palette *palette);
+void	palette_night(t_color_palette *palette);
+void	palette_cool(t_color_palette *palette);
+void	palette_grey(t_color_palette *palette);
 #endif

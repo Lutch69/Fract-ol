@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 16:14:21 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:37:02 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # include "../../libft/libft.h"
 # include "../../printf/ft_printf.h"
 # include "struct.h"
-# include "event.h"
+# include "../event.h"
 
 int		put_color_to_pixel(int iter);
 int		render(t_data *data);

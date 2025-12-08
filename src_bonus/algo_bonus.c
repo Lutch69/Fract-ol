@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/06 15:52:26 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/07 16:52:12 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	render(t_data *data)
 	t_complex	c;
 	int			iter;
 	int			color;
+	double		logari;
 
 	data->x = 0;
 	while (data->x < WIDTH)
