@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 17:52:15 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 16:25:41 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 void	init_image(t_data *data)
 {
 	ft_memset(&data->img, 0, sizeof(&data->img));
-	data->palette.palette_id == 0;
-	// init_palette(data);
+	data->palette_id = 0;
 	data->zoom = 1.00;
+	change_palette(data);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "Fract-ol");
 	data->img.ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
@@ -57,8 +57,8 @@ void	setup_center(t_data *data)
 
 void	event_mlx(t_data *data)
 {
-	mlx_hook(data->win_ptr, ON_MOUSEDOWN, MOUSE_MASK, mouse_hook, data);
-	mlx_hook(data->win_ptr, ON_MOUSEUP, MOUSE_MASK, mouse_button_release, data);
+	mlx_hook(data->win_ptr, ON_MOUSEDOWN, BUTTON_PRESS_MASK, mouse_hook, data);
+	mlx_hook(data->win_ptr, ON_MOUSEUP, BUTTON_RELEASE_MASK, mouse_button_release, data);
 	mlx_hook(data->win_ptr, ON_MOUSEMOVE, MOUSE_MASK, mouse_move, data);
 	mlx_hook(data->win_ptr, KEY_PRESS, KEY_PRESSMASK, key_press, data);
 	mlx_hook(data->win_ptr, ON_DESTROY, 0, close_prog, data);

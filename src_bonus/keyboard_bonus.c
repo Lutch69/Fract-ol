@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/07 17:30:49 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 17:46:11 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	key_press(int keycode, void *param)
 	t_data	*data;
 	data = (t_data *)param;
 	data->step = 0.1 / data->zoom;
+	if (keycode == KEY_SPACE)
+		change_palette(data);
 	define_view(data, keycode);
 	setup_re_im(data, 0);
 	return (0);

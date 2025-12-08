@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/07 16:52:12 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 17:37:00 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	render(t_data *data)
 	t_complex	c;
 	int			iter;
 	int			color;
-	double		logari;
 
 	data->x = 0;
 	while (data->x < WIDTH)
@@ -29,13 +28,15 @@ int	render(t_data *data)
 		data->y = 0;
 		while (data->y < HEIGHT)
 		{
+			// printf ("x = %d y = %d iter = %d", data->x, data->y, iter);
 			pixel_to_complex(&c, data);
 			if (data->fractal_type == MANDELBROT)
 				iter = mandelbrot_iter(c.re, c.im);
 			else if (data->fractal_type == JULIA)
 				iter = julia_iter(c.re, c.im, data->julia.complex.re,
 						data->julia.complex.im);
-			color = put_color_to_pixel(iter);
+			// printf ("%d\n", iter);
+			color = put_color_to_pixel(data, iter);
 			my_mlx_pixel_put(&data->img, data->x, data->y, color);
 			data->y++;
 		}

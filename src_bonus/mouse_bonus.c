@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 14:01:10 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 17:33:35 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	mouse_button_release(int button, int x, int y, void *param)
 	(void)x;
 	(void)y;
 	data = (t_data *)param;
-	puts("0");
 	if (button == 1)
 		data->mouse.flag_drag = 0;
 	return (0);
@@ -32,7 +31,6 @@ int	mouse_button_press(int x, int y, t_data *data)
 	data->mouse.center_im_start = data->center_im;
 	data->mouse.flag_drag = 1;
 	data->mouse.motion_counter = 0;
-	puts("1");
 	return (0);
 }
 // Fonction d'évènement pour déplacement du curseur
@@ -40,6 +38,7 @@ int	mouse_move(int x, int y, void *param)
 {
 	t_data	*data;
 
+	// printf("x = %d\ny = %d\n", x, y);
 	data = (t_data *)param;
 	data->mouse.motion_counter++;
 	if (data->mouse.flag_drag == 1 && (data->mouse.motion_counter % 2) == 0)

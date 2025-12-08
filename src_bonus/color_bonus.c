@@ -3,15 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 17:59:10 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 18:20:03 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
+int	low_iter(double iter)
+{
+	if (iter == 0)
+		return(0x00000000);
+	else if (iter == 1)
+		return(0x00111111);
+	else if (iter == 2)
+		return(0x00222222);
+	else if (iter == 3)
+		return (0x00333333);
+	else if (iter == 4)
+		return(0x00444444);
+	else
+		return(0x00555555);
+}
 double	normalize_iteration(int iter)
 {
 	double	valeur_log;
@@ -37,6 +52,9 @@ int	put_color_to_pixel(t_data *data, int iter)
 	double	logari;
 
 	logari = normalize_iteration(iter);
-	to_hsv(&data->palette, logari, &color_pix);
+	if (iter <= 5)
+		color_pix = low_iter(iter);
+	else
+		color_pix = to_hsv(&data->palette, logari);
 	return (color_pix);
 }

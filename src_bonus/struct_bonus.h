@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 17:39:03 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 15:41:09 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,36 @@ typedef struct s_img
 	int		endian;
 }			t_img;
 
+typedef struct s_rgb
+{
+	int		r;
+	int		g;
+	int		b;
+	double	float_r;
+	double	float_g;
+	double	float_b;
+}			t_rgb;
+
+typedef struct s_hsv
+{
+	int		part;
+	float	f_part;
+	double	v_max;
+	double	v_increasing;
+	double	v_decreasing;
+	double 	v_min;
+	t_rgb	rgb;
+}			t_hsv;
+
 typedef struct s_color_palette
 {
-	double	hue_start;      // Teinte de départ en degrés (0-360)
-	double	hue_range;      // Plage de teintes à parcourir
-	double	saturation;     // Saturation (0.0 à 1.0)
-	double	value;          // Valeur/luminosité (0.0 à 1.0)
-	int		palette_id;     // ID de la palette actuelle
-}   t_color_palette;
+	double	hue_start;
+	double	hue_range;
+	double	saturation;
+	double	value;
 
-
-
+	t_hsv	hsv;
+}			t_color_palette;
 
 typedef struct s_complex
 {
@@ -94,7 +113,8 @@ typedef struct s_data
 	double			center_im;
 	double			zoom;
 	double			step;
-
+	int				palette_id;
+	
 	t_view			view;
 	t_img			img;
 	t_mouse			mouse;

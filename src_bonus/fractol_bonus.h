@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 17:26:18 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/08 18:00:41 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@
 # include "struct_bonus.h"
 # include "../event.h"
 
-int		put_color_to_pixel(int iter);
+int		to_hsv(t_color_palette *palette , double logari);
+int		put_color_to_pixel(t_data *data, int iter);
 int		render(t_data *data);
 void	pixel_to_complex(t_complex *c, t_data *data);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
@@ -69,6 +70,6 @@ void	palette_cool(t_color_palette *palette);
 void	palette_warm(t_color_palette *palette);
 void	palette_forest(t_color_palette *palette);
 void	palette_night(t_color_palette *palette);
-void	palette_cool(t_color_palette *palette);
+void	palette_psychedelic(t_color_palette *palette);
 void	palette_grey(t_color_palette *palette);
 #endif
