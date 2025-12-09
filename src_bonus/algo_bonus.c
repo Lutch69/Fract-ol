@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/08 17:37:00 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:34:06 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
+void	rotate_julia(t_data *data);
 int		mandelbrot_iter(double c_re, double c_im);
 int		julia_iter(double c_re, double c_im, double julia_re, double julia_im);
 void	pixel_to_complex(t_complex *c, t_data *data);
@@ -23,19 +24,19 @@ int	render(t_data *data)
 	int			color;
 
 	data->x = 0;
+	if (data->julia.auto_rotate && data->fractal_type == JULIA)
+		rotate_julia(data);
 	while (data->x < WIDTH)
 	{
 		data->y = 0;
 		while (data->y < HEIGHT)
 		{
-			// printf ("x = %d y = %d iter = %d", data->x, data->y, iter);
 			pixel_to_complex(&c, data);
 			if (data->fractal_type == MANDELBROT)
 				iter = mandelbrot_iter(c.re, c.im);
 			else if (data->fractal_type == JULIA)
 				iter = julia_iter(c.re, c.im, data->julia.complex.re,
 						data->julia.complex.im);
-			// printf ("%d\n", iter);
 			color = put_color_to_pixel(data, iter);
 			my_mlx_pixel_put(&data->img, data->x, data->y, color);
 			data->y++;
@@ -100,4 +101,13 @@ int	julia_iter(double c_re, double c_im, double julia_re, double julia_im)
 		i++;
 	}
 	return (i);
+}
+// Rotate fractal julia stay with angle under 0 and 2pi and calcul new position de c on circle
+void	rotate_julia(t_data *data)
+{
+	data->julia.angle += 0.015;
+	if (data->julia.angle >= 2 * M_PI)
+		data->julia.angle = 0;
+	data->julia.complex.re = data->julia.center_re + data->julia.radius * cos(data->julia.angle);
+	data->julia.complex.im = data->julia.center_im + data->julia.radius * sin(data->julia.angle);
 }

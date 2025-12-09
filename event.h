@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 14:37:28 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/08 15:05:14 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/09 11:42:16 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 	# define KEY_PLUS 13
 	# define KEY_MINUS 1
 	# define KEY_SPACE 49
+	# define KEY_R 15
 	# define KEY_PRESS 2
 	# define KEY_PRESSMASK 0
 	# define BUTTON_PRESS_MASK 0

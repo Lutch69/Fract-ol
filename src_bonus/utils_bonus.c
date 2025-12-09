@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 12:53:58 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/09 12:52:32 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ void	print_usage(void)
 	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable fractals:\n\t\t   mandelbrot\n\t\t   julia [c_real] [c_imaginary]\n"
 	, 2);
 	exit(EXIT_FAILURE);
+}
+
+void	init_julia(t_data *data)
+{
+	data->julia.angle = 0;
+	data->julia.radius = 0.08;
+	data->julia.auto_rotate = 0;
+	data->julia.center_re = data->julia.complex.re;
+	data->julia.center_re = data->julia.complex.re;
 }
 // convert coordinate for julia
 void	convert_julia(char **av, t_data *data)

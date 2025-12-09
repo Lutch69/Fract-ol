@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/08 15:41:09 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:33:50 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct s_hsv
 {
 	int		part;
 	float	f_part;
-	double	v_max;
+	double	h_normalized;
+	double	v_value;
 	double	v_increasing;
 	double	v_decreasing;
 	double 	v_min;
@@ -68,6 +69,11 @@ typedef struct s_complex
 typedef struct s_julia
 {
 	t_complex	complex;
+	double		angle;
+	double		radius;
+	double		center_re;
+	double		center_im;
+	int			auto_rotate;
 }				t_julia;
 
 typedef struct	s_view
@@ -114,7 +120,7 @@ typedef struct s_data
 	double			zoom;
 	double			step;
 	int				palette_id;
-	
+
 	t_view			view;
 	t_img			img;
 	t_mouse			mouse;

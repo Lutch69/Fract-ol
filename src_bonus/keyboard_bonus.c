@@ -3,18 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/08 17:46:11 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:34:30 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
+void	key_r(t_data *data)
+{
+	data->julia.auto_rotate = !data->julia.auto_rotate;
+	if (data->julia.auto_rotate)
+	{
+		data->center_re = 0.0;
+		data->center_im = 0.0;
+		data->zoom = 1.0;
+		setup_re_im(data, 0);
+	}
+}
 // Fonction de déplacement grace au flèches
 void	define_view(t_data *data, int keycode)
 {
+
 	if (keycode == KEY_PLUS)
 	{
 		data->zoom *= 1.1;
@@ -27,6 +39,8 @@ void	define_view(t_data *data, int keycode)
 			data->zoom = 0.1;
 		setup_re_im(data, 0);
 	}
+	if (keycode == KEY_R && data->fractal_type == JULIA) // touche R a set avec linux
+		data->julia.auto_rotate = !data->julia.auto_rotate;
 	if (keycode == KEY_LEFT)
 		data->center_re -= data->step;
 	if (keycode == KEY_RIGHT)

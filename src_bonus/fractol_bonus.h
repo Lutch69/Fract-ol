@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/08 18:00:41 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:30:00 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@
 #  define HEIGHT 600
 # endif
 
-#ifndef MAX_ITER
 # define MAX_ITER 400
-# endif
 
 # include <stdio.h>
 # include <math.h>
@@ -45,6 +43,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		mouse_hook(int button, int x, int y, void *param);
 int		mouse_move(int x, int y, void *param);
 int		key_press(int keycode, void *param);
+void	key_r(t_data *data);
 void	define_view(t_data *data, int keycode);
 int		close_prog(void *param);
 void	print_usage(void);
@@ -54,6 +53,7 @@ void	is_julia(int ac, char **av, t_data *data);
 void	is_mandelbrot(int ac, t_data *data);
 void	event_mlx(t_data *data);
 void	convert_julia(char **av, t_data *data);
+void	init_julia(t_data *data);
 int		mouse_button_press(int x, int y, t_data *data);
 int		mouse_button_release(int button, int x, int y, void *param);
 
@@ -66,10 +66,15 @@ void	setup_center(t_data *data);
 // define palette
 void	change_palette(t_data *data);
 void	palette_rainbow(t_color_palette *palette);
-void	palette_cool(t_color_palette *palette);
+void	palette_cold(t_color_palette *palette);
 void	palette_warm(t_color_palette *palette);
 void	palette_forest(t_color_palette *palette);
 void	palette_night(t_color_palette *palette);
 void	palette_psychedelic(t_color_palette *palette);
 void	palette_grey(t_color_palette *palette);
+void	palette_ocean(t_color_palette *palette);
+void	palette_sunset(t_color_palette *palette);
+
+
+void	rotate_julia(t_data *data);
 #endif

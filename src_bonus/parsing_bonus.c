@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/06 16:22:41 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/09 12:41:32 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,14 @@ void	is_julia(int ac, char **av, t_data *data)
 	random_index = rand() % 5;
 	if (ac == 2)
 	{
+
 		random_julia(data, random_index);
 		// A changer en ft_printf
 		printf("c_real = [%f]\nc_imaginary = [%f]\n",data->julia.complex.re, data->julia.complex.im);
 	}
 	if (ac == 4 && check_float(av[2]) == 1 && check_float(av[3]) == 1)
 		convert_julia(av, data);
+	init_julia(data);
 	init_image(data);
 	setup_re_im(data, 0);
 	event_mlx(data);
