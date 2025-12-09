@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
+#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/12/07 17:58:11 by lucasdebarn      ###   ########.fr        #
+#    Updated: 2025/12/09 17:05:14 by ludebarn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,21 +54,21 @@ INCLUDES = -I . -I $(LIBFT) -I $(PRINTF)/
 
 # Configuartion au systeme graphique
 ifeq ($(UNAME_S),Linux)
-    # Configuration pour Linux
-    MLX_DIR = minilibx-linux
-    MLX_LIB = $(MLX_DIR)/libmlx.a
-    MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
-    CFLAGS += -D LINUX=1
-    OS_MSG = Linux 🐧
+# Configuration pour Linux
+	MLX_DIR = minilibx-linux
+	MLX_LIB = $(MLX_DIR)/libmlx.a
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+	CFLAGS += -D LINUX=1
+	OS_MSG = Linux 🐧
 endif
 
 ifeq ($(UNAME_S),Darwin)
-    # Configuration pour macOS
-    MLX_DIR = minilibx_opengl_20191021
-    MLX_LIB = $(MLX_DIR)/libmlx.a
-    MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
-    CFLAGS += -D MACOS=1
-    OS_MSG = macOS 🍎
+	# Configuration pour macOS
+	MLX_DIR = minilibx_opengl_20191021
+	MLX_LIB = $(MLX_DIR)/libmlx.a
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+	CFLAGS += -D MACOS=1
+	OS_MSG = macOS 🍎
 endif
 
 # Ajouter le répertoire MLX aux includes
@@ -92,6 +92,7 @@ $(NAME): $(MLX_LIB) $(OBJS)
 	@make -s -C $(PRINTF)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBRARY_PATH) $(LIBRARIES) $(MLX_FLAGS) -o $(NAME)
 	@echo "✅ Compilation terminée pour la partie mandatory sous $(OS_MSG) !"
+
 $(NAME_BONUS): $(MLX_LIB) $(OBJS_BONUS)
 	@echo "\n🔗 Linkage pour $(OS_MSG)..."
 	@make -s -C $(LIBFT)
@@ -110,6 +111,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	$(COMPILE_MSG)
+
 $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@

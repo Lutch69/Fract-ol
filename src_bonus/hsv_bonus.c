@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hsv_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:56:38 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 12:57:55 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/09 16:59:08 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,16 +97,11 @@ static void	calcul_part(t_hsv *hsv, double h)
 
 static int	hsv_to_rgb(t_hsv *hsv, double h, double s, double v)
 {
-	// printf("INPUT: h=%.2f s=%.2f v=%.2f\n", h, s, v);
 	calcul_part(hsv, h);
 	hsv->v_value = v;
 	hsv->v_min = v * (1.0 - s);
 	hsv->v_decreasing = v * (1.0 -(hsv->f_part * s));
 	hsv->v_increasing = v * (1 - ((1.0 - hsv->f_part) * s));
-	// printf("PART: %d, h_normalized=%.2f, f_part=%.2f\n",
-	// 		hsv->part, hsv->h_normalized, hsv->f_part);
-	// printf("v_value=%.2f, v_min=%.2f, v_dec=%.2f, v_inc=%.2f\n",
-	// 		hsv->v_value, hsv->v_min, hsv->v_decreasing, hsv->v_increasing);
 	rgb_converter(hsv, &hsv->rgb);
 	return (hsv->rgb.r << 16 | hsv->rgb.g << 8 | hsv->rgb.b);
 }

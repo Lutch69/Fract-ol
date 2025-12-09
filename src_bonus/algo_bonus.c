@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 13:34:06 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/09 17:31:36 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

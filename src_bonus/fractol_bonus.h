@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/09 13:30:00 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/09 17:37:19 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@
 # ifndef HEIGHT
 #  define HEIGHT 600
 # endif
+// checker le parsing avec julia pour ex = .05
+# define MAX_ITER 500
 
-# define MAX_ITER 400
+# ifndef M_PI
+# define M_PI 3.14159265358979323846
+# endif
 
 # include <stdio.h>
 # include <math.h>

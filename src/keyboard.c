@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/07 17:30:56 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/09 17:21:07 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 // Fonction de déplacement grace au flèches
 void	define_view(t_data *data, int keycode)
 {
-	if (keycode == KEY_PLUS)
+	if (keycode == KEY_W)
 	{
 		data->zoom *= 1.1;
 		setup_re_im(data, 0);
 	}
-	else if (keycode == KEY_MINUS)
+	else if (keycode == KEY_S)
 	{
 		data->zoom /= 1.2;
 		if (data->zoom < 0.1)
@@ -42,7 +42,6 @@ void	define_view(t_data *data, int keycode)
 int	key_press(int keycode, void *param)
 {
 	t_data	*data;
-	printf("%d\n", keycode);
 	data = (t_data *)param;
 	data->step = 0.1 / data->zoom;
 	define_view(data, keycode);

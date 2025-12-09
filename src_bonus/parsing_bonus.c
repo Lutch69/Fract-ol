@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 12:41:32 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/09 16:04:26 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void	is_julia(int ac, char **av, t_data *data)
 	random_index = rand() % 5;
 	if (ac == 2)
 	{
-
 		random_julia(data, random_index);
 		// A changer en ft_printf
 		printf("c_real = [%f]\nc_imaginary = [%f]\n",data->julia.complex.re, data->julia.complex.im);
@@ -122,6 +121,7 @@ void	is_mandelbrot(int ac, t_data *data)
 		init_image(data);
 		setup_re_im(data, 0);
 		event_mlx(data);
+
 	}
 	else
 		print_usage();
