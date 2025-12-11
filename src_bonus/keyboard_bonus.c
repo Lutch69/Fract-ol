@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 17:37:46 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:43:11 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

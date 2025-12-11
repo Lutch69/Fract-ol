@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/06 16:14:42 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/10 10:54:25 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	check_float(char *av)
 		i++;
 	if (av[i] == '+' || av[i] == '-')
 		i++;
+	if (!(ft_isdigit(av[i]) == 1))
+		print_usage();
 	while (av[i])
 	{
 		if (!(ft_isdigit(av[i]) == 1 || av[i] == '.'))
@@ -41,30 +43,24 @@ int	check_float(char *av)
 
 int	define_fractale(int ac, char **av, t_data *data)
 {
-	if (ac == 2 || ac == 4)
+	if (!(ac == 2 || ac == 4))
+		print_usage();
+	else
 	{
 		if (((ft_strncmp(av[1], "MANDELBROT", 11)) == 0) || ft_strncmp(av[1],
 				"Mandelbrot", 11) == 0 || ft_strncmp(av[1], "mandelbrot",
 				11) == 0)
-		{
 			data->fractal_type = MANDELBROT;
-			data->center_re = -0.5;
-			return (1);
-		}
 		else if (((ft_strncmp(av[1], "Julia", 6)) == 0) || ft_strncmp(av[1],
 				"JULIA", 6) == 0 || ft_strncmp(av[1], "julia", 6) == 0)
-		{
 			data->fractal_type = JULIA;
-			data->center_re = 0.0;
-			return (1);
-		}
 		else
 		{
 			printf("Error: Unknown fractal type '%s'\n", av[1]);
 			print_usage();
 		}
 	}
-	return (0);
+	return (1);
 }
 void	random_julia(t_data *data, int random_index)
 {
@@ -108,6 +104,7 @@ void	is_julia(int ac, char **av, t_data *data)
 	}
 	if (ac == 4 && check_float(av[2]) == 1 && check_float(av[3]) == 1)
 		convert_julia(av, data);
+	data->center_re = 0.0;
 	init_image(data);
 	setup_re_im(data, 0);
 	event_mlx(data);
@@ -117,6 +114,7 @@ void	is_mandelbrot(int ac, t_data *data)
 {
 	if (ac == 2)
 	{
+		data->center_re = -0.05;
 		init_image(data);
 		setup_re_im(data, 0);
 		event_mlx(data);

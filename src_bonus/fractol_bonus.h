@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/09 17:37:19 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:14:24 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # ifndef HEIGHT
 #  define HEIGHT 600
 # endif
-// checker le parsing avec julia pour ex = .05
-# define MAX_ITER 500
+
+# define MAX_ITER 100
 
 # ifndef M_PI
 # define M_PI 3.14159265358979323846
@@ -54,12 +54,14 @@ void	print_usage(void);
 int		define_fractale(int ac, char **av, t_data *data);
 int		check_float(char *av);
 void	is_julia(int ac, char **av, t_data *data);
+void	rotate_julia(t_data *data);
 void	is_mandelbrot(int ac, t_data *data);
 void	event_mlx(t_data *data);
 void	convert_julia(char **av, t_data *data);
 void	init_julia(t_data *data);
 int		mouse_button_press(int x, int y, t_data *data);
 int		mouse_button_release(int button, int x, int y, void *param);
+void	is_burningship(int ac, t_data *data);
 
 // set up struct
 void	setup_re_im(t_data *data, int flag);

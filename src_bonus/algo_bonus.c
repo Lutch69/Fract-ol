@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 17:31:36 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:24:59 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	rotate_julia(t_data *data);
+int		burningship_iter(double c_re, double c_im);
 int		mandelbrot_iter(double c_re, double c_im);
 int		julia_iter(double c_re, double c_im, double julia_re, double julia_im);
 void	pixel_to_complex(t_complex *c, t_data *data);
@@ -37,6 +37,8 @@ int	render(t_data *data)
 			else if (data->fractal_type == JULIA)
 				iter = julia_iter(c.re, c.im, data->julia.complex.re,
 						data->julia.complex.im);
+			else if (data->fractal_type == BURNINGSHIP)
+				iter = burningship_iter(c.re, c.im);
 			color = put_color_to_pixel(data, iter);
 			my_mlx_pixel_put(&data->img, data->x, data->y, color);
 			data->y++;
@@ -53,7 +55,11 @@ void	pixel_to_complex(t_complex *c, t_data *data)
 	ft_memset(c, 0, sizeof(*c));
 	c->re = data->view.min_re + data->x * (data->view.max_re
 			- data->view.min_re) / (double)WIDTH;
-	c->im = data->view.max_im - data->y * (data->view.max_im
+	if (data->fractal_type == BURNINGSHIP)
+		c->im = data->view.min_im + data->y * (data->view.max_im
+			- data->view.min_im) / (double)HEIGHT;
+	else
+		c->im = data->view.max_im - data->y * (data->view.max_im
 			- data->view.min_im) / (double)HEIGHT;
 }
 
@@ -102,12 +108,28 @@ int	julia_iter(double c_re, double c_im, double julia_re, double julia_im)
 	}
 	return (i);
 }
-// Rotate fractal julia stay with angle under 0 and 2pi and calcul new position de c on circle
-void	rotate_julia(t_data *data)
+int	burningship_iter(double c_re, double c_im)
 {
-	data->julia.angle += 0.015;
-	if (data->julia.angle >= 2 * M_PI)
-		data->julia.angle = 0;
-	data->julia.complex.re = data->julia.center_re + data->julia.radius * cos(data->julia.angle);
-	data->julia.complex.im = data->julia.center_im + data->julia.radius * sin(data->julia.angle);
+	double	z_re;
+	double	z_im;
+	double	temp_re;
+	int		i;
+
+	z_re = 0.0;
+	z_im = 0.0;
+	i = 0;
+	while (i < MAX_ITER)
+	{
+		z_re = fabs(z_re);
+		z_im = fabs(z_im);
+		temp_re = (z_re * z_re - z_im * z_im);
+		z_im = 2.0 * z_re * z_im;
+		z_re = temp_re;
+		z_re += c_re;
+		z_im += c_im;
+		if (z_re * z_re + z_im * z_im > 4.0)
+			break;
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/09 12:33:50 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/10 12:17:06 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 typedef enum e_fractal_type
 {
 	MANDELBROT =	1,
-	JULIA = 		2
+	JULIA = 		2,
+	BURNINGSHIP =	3
 }					t_fractal_type;
 
 typedef struct s_img

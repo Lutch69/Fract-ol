@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:07:40 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 16:23:29 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:16:56 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int ac, char **av)
 			is_julia(ac, av, &data);
 		if (data.fractal_type == MANDELBROT)
 			is_mandelbrot(ac, &data);
+		if (data.fractal_type == BURNINGSHIP)
+			is_burningship(ac, &data);
 	}
 	return (0);
 }

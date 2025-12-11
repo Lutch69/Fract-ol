@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 17:21:07 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/10 10:27:28 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	key_press(int keycode, void *param)
 {
 	t_data	*data;
 	data = (t_data *)param;
+	printf ("%d\n", keycode);
 	data->step = 0.1 / data->zoom;
 	define_view(data, keycode);
 	setup_re_im(data, 0);
