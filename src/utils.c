@@ -14,8 +14,8 @@
 
 void	print_usage(void)
 {
-	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable fractals:\n\t\t   mandelbrot\n\t\t   julia [c_real] [c_imaginary]\n"
-	, 2);
+	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable fractals:\n\t\t   mandelbrot\n\t\t   julia [c_real] [c_imaginary]\n",
+		2);
 	exit(EXIT_FAILURE);
 }
 // convert coordinate for julia
@@ -25,7 +25,8 @@ void	convert_julia(char **av, t_data *data)
 	data->julia.complex.im = atof(av[3]);
 	if (data->julia.complex.re > INT_MAX || data->julia.complex.re < INT_MIN)
 	{
-		printf("Invalid int : [%f]\n", data->julia.complex.re); // a changer en ft_printf
+		printf("Invalid int : [%f]\n", data->julia.complex.re);
+			// a changer en ft_printf
 		print_usage();
 	}
 	if (data->julia.complex.im > INT_MAX || data->julia.complex.im < INT_MIN)

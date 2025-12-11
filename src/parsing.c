@@ -100,7 +100,8 @@ void	is_julia(int ac, char **av, t_data *data)
 	{
 		random_julia(data, random_index);
 		// A changer en ft_printf
-		printf("c_real = [%f]\nc_imaginary = [%f]\n",data->julia.complex.re, data->julia.complex.im);
+		printf("c_real = [%f]\nc_imaginary = [%f]\n", data->julia.complex.re,
+			data->julia.complex.im);
 	}
 	if (ac == 4 && check_float(av[2]) == 1 && check_float(av[3]) == 1)
 		convert_julia(av, data);

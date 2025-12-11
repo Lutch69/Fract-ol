@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 11:13:29 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 21:29:54 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 22:45:28 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	text_user_interface(t_data *data)
 	// get_zoom(data);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, x, y, data->tui.title_color,
 		"FRACTOL V1.0");
-	mlx_string_put(data->mlx_ptr, data->win_ptr, x + 1, y + 1, data->tui.title_color,
-		"FRACTOL V1.0");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, x + 1, y + 1,
+		data->tui.title_color, "FRACTOL V1.0");
 	y += 50;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, y, data->tui.text_color,
 		data->tui.type);
@@ -40,14 +40,15 @@ void	text_user_interface(t_data *data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, y, data->tui.text_color,
 		data->tui.palette);
 	y += 30;
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, y, data->tui.text_color, "zooom");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, y, data->tui.text_color,
+		"zooom");
 	// data->tui.zoom);
 	// free(data->tui.zoom);
 	y += 30;
-	mlx_string_put(data->mlx_ptr, data->win_ptr, x, HEIGHT / 5.15 , data->tui.title_color,
-		"CONTROLS");
-	mlx_string_put(data->mlx_ptr, data->win_ptr, x, HEIGHT / 5.15 + 1 , data->tui.title_color,
-		"CONTROLS");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, x, HEIGHT / 5.15,
+		data->tui.title_color, "CONTROLS");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, x + 1, HEIGHT / 5.15 + 1,
+		data->tui.title_color, "CONTROLS");
 	y += 50;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, y, data->tui.text_color,
 		"Move up : Arrow up");

@@ -6,18 +6,46 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 21:08:06 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 23:44:24 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
+// Fonction d'évènement pour touche appuyer
+int	key_press(int keycode, void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	data->step = 0.1 / data->zoom;
+	if (keycode == KEY_P)
+		change_palette(data);
+	if (keycode == KEY_SPACE)
+		data->flag_tui *= -1;
+	if (keycode == KEY_MIN || keycode == KEY_PLUS)
+		key_plusmin(data, keycode);
+	define_keypress(data, keycode);
+	setup_re_im(data, 0);
+	return (0);
+}
+
 void	key_plusmin(t_data *data, int keycode)
 {
-	if (keycode == KEY_PLUS)
-		data->julia.radius *= 1.2;
-	else if (keycode == KEY_MIN)
-		data->julia.radius *= 0.8;
+	if (data->fractal_type == JULIA)
+	{
+		if (keycode == KEY_PLUS)
+			data->julia.radius *= 1.2;
+		else if (keycode == KEY_MIN)
+			data->julia.radius *= 0.8;
+	}
+	// if (data->fractal_type == PHOENIX)
+	// {
+	// 	if (keycode == KEY_PLUS)
+	// 		data->phoenix.radius *= 1.2;
+	// 	else if (keycode == KEY_MIN)
+	// 		data->phoenix.radius *= 0.8;
+	// }
 }
 
 void	key_r(t_data *data)
@@ -33,7 +61,7 @@ void	key_r(t_data *data)
 }
 
 // Fonction de déplacement grace au flèches
-void	define_view(t_data *data, int keycode)
+void	define_keypress(t_data *data, int keycode)
 {
 	if (keycode == KEY_W)
 	{
@@ -59,21 +87,5 @@ void	define_view(t_data *data, int keycode)
 		data->center_im -= data->step;
 	if (keycode == KEY_ESC)
 		close_prog(data);
-}
-// Fonction d'évènement pour touche appuyer
-int	key_press(int keycode, void *param)
-{
-	t_data	*data;
-	data = (t_data *)param;
-	data->step = 0.1 / data->zoom;
-	if (keycode == KEY_P)
-		change_palette(data);
-	if (keycode == KEY_SPACE)
-		data->flag_tui *= -1;
-	if (keycode == KEY_MIN || keycode == KEY_PLUS)
-		key_plusmin(data, keycode);
-	define_view(data, keycode);
-	setup_re_im(data, 0);
-	return (0);
 }
 

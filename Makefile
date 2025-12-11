@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
+#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/12/11 11:19:27 by ludebarn         ###   ########.fr        #
+#    Updated: 2025/12/11 22:26:07 by lucasdebarn      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SRCS = init_struct.c fractol.c algo.c color.c mouse.c keyboard.c \
 SRCS_BONUS = init_struct_bonus.c fractol_bonus.c algo_bonus.c color_bonus.c \
 		mouse_bonus.c keyboard_bonus.c parsing_bonus.c utils_bonus.c \
 		define_palette_color_bonus.c define_palette_color2_bonus.c hsv_bonus.c \
-		tui_bonus.c
+		tui_bonus.c julia_bonus.c mandelbrot_bonus.c burningship_bonus.c \
+		tricorn_bonus.c
 
 # Chemins complets vers les fichiers source
 SRC_FILES = $(addprefix $(SRC_DIR)/,$(SRCS))

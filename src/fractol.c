@@ -14,9 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	srand(time(NULL));
 	t_data	data;
 
+	srand(time(NULL));
 	ft_memset(&data, 0, sizeof(data));
 	if (ac < 2)
 		print_usage();

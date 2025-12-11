@@ -42,11 +42,11 @@ void	define_view(t_data *data, int keycode)
 int	key_press(int keycode, void *param)
 {
 	t_data	*data;
+
 	data = (t_data *)param;
-	printf ("%d\n", keycode);
+	printf("%d\n", keycode);
 	data->step = 0.1 / data->zoom;
 	define_view(data, keycode);
 	setup_re_im(data, 0);
 	return (0);
 }
-

@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   hsv_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:56:38 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 11:38:43 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:45:13 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-static void		rgb_converter(t_hsv *hsv, t_rgb *rgb);
-static void		rgb_converter2(t_hsv *hsv, t_rgb *rgb);
-static void		calcul_part(t_hsv *hsv, double h);
-static int		hsv_to_rgb(t_hsv *hsv, double h, double s, double v);
+static void	rgb_converter(t_hsv *hsv, t_rgb *rgb);
+static void	rgb_converter2(t_hsv *hsv, t_rgb *rgb);
+static void	calcul_part(t_hsv *hsv, double h);
+static int	hsv_to_rgb(t_hsv *hsv, double h, double s, double v);
 
-int	to_hsv(t_color_palette *palette , double logari)
+int	to_hsv(t_color_palette *palette, double logari)
 {
 	double	h;
 	double	s;
@@ -29,11 +29,10 @@ int	to_hsv(t_color_palette *palette , double logari)
 	h = palette->hue_start + (logari * palette->hue_range);
 	s = palette->saturation;
 	v = palette->value;
-
 	if (s == 0)
 	{
 		gray = (int)(logari * 255);
-		return(gray << 16 | gray << 8 | gray);
+		return (gray << 16 | gray << 8 | gray);
 	}
 	while (h >= 360.0)
 		h -= 360.0;
@@ -82,10 +81,8 @@ static void	rgb_converter(t_hsv *hsv, t_rgb *rgb)
 		rgb->b = (hsv->v_increasing * 255);
 	}
 	else
-	rgb_converter2(hsv, rgb);
+		rgb_converter2(hsv, rgb);
 }
-
-
 
 static void	calcul_part(t_hsv *hsv, double h)
 {
@@ -94,13 +91,12 @@ static void	calcul_part(t_hsv *hsv, double h)
 	hsv->f_part = hsv->h_normalized - hsv->part;
 }
 
-
 static int	hsv_to_rgb(t_hsv *hsv, double h, double s, double v)
 {
 	calcul_part(hsv, h);
 	hsv->v_value = v;
 	hsv->v_min = v * (1.0 - s);
-	hsv->v_decreasing = v * (1.0 -(hsv->f_part * s));
+	hsv->v_decreasing = v * (1.0 - (hsv->f_part * s));
 	hsv->v_increasing = v * (1 - ((1.0 - hsv->f_part) * s));
 	rgb_converter(hsv, &hsv->rgb);
 	return (hsv->rgb.r << 16 | hsv->rgb.g << 8 | hsv->rgb.b);

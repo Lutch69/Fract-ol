@@ -66,4 +66,3 @@ void	palette_sunset(t_data *data)
 	data->tui.title_color = 0x00FF88AA;
 	data->tui.text_color = 0x00FFBBCC;
 }
-

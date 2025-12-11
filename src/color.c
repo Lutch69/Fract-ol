@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/08 18:12:55 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 23:46:25 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 void	init_color(t_color *color, int iter)
 {
 	ft_memset(color, 0, sizeof(color));
-	color->R = (iter * 0) % 255;
-	color->G = (iter * 5) % 128;
-	color->B = (iter * 5) % 128;
+	color->r = (iter * 0) % 255;
+	color->g = (iter * 5) % 128;
+	color->b = (iter * 5) % 128;
 }
 // Fonction pour garder en mémoire la positions des pixels
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
@@ -36,6 +36,6 @@ int	put_color_to_pixel(int iter)
 	int		color_pix;
 
 	init_color(&color, iter);
-	color_pix = (color.R << 16) | (color.G << 8) | color.B;
+	color_pix = (color.r << 16) | (color.g << 8) | color.b;
 	return (color_pix);
 }

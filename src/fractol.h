@@ -23,19 +23,19 @@
 #  define HEIGHT 600
 # endif
 
-#ifndef MAX_ITER
-# define MAX_ITER 150
+# ifndef MAX_ITER
+#  define MAX_ITER 150
 # endif
 
-# include <stdio.h>
-# include <math.h>
-# include <stdlib.h>
-# include <time.h>
-# include "mlx.h"
 # include "../../libft/libft.h"
 # include "../../printf/ft_printf.h"
-# include "struct.h"
 # include "../event.h"
+# include "mlx.h"
+# include "struct.h"
+# include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <time.h>
 
 int		put_color_to_pixel(int iter);
 int		render(t_data *data);
@@ -58,7 +58,7 @@ void	convert_julia(char **av, t_data *data);
 void	setup_re_im(t_data *data, int flag);
 void	init_color(t_color *color, int iter);
 void	init_image(t_data *data);
-void	range_setup (t_data *data);
+void	range_setup(t_data *data);
 void	setup_center(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:07:40 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/10 12:16:56 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 22:25:02 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	srand(time(NULL));
 	t_data	data;
 
+	srand(time(NULL));
 	ft_memset(&data, 0, sizeof(data));
 	if (ac < 2)
 		print_usage();
@@ -24,10 +24,12 @@ int	main(int ac, char **av)
 	{
 		if (data.fractal_type == JULIA)
 			is_julia(ac, av, &data);
-		if (data.fractal_type == MANDELBROT)
+		else if (data.fractal_type == MANDELBROT)
 			is_mandelbrot(ac, &data);
-		if (data.fractal_type == BURNINGSHIP)
+		else if (data.fractal_type == BURNINGSHIP)
 			is_burningship(ac, &data);
+		else
+			is_tricorn(ac, &data);
 	}
 	return (0);
 }
