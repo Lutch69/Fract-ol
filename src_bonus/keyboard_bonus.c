@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 11:09:13 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:08:06 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	define_view(t_data *data, int keycode)
 			data->zoom = 0.1;
 		setup_re_im(data, 0);
 	}
-	if (keycode == KEY_R && data->fractal_type == JULIA) 
+	if (keycode == KEY_R && data->fractal_type == JULIA)
 		data->julia.auto_rotate = !data->julia.auto_rotate;
 	if (keycode == KEY_LEFT)
 		data->center_re -= data->step;
@@ -66,8 +66,10 @@ int	key_press(int keycode, void *param)
 	t_data	*data;
 	data = (t_data *)param;
 	data->step = 0.1 / data->zoom;
-	if (keycode == KEY_SPACE)
+	if (keycode == KEY_P)
 		change_palette(data);
+	if (keycode == KEY_SPACE)
+		data->flag_tui *= -1;
 	if (keycode == KEY_MIN || keycode == KEY_PLUS)
 		key_plusmin(data, keycode);
 	define_view(data, keycode);

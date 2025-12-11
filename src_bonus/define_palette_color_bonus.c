@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_palette_color_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:08:41 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 13:35:47 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:05:15 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	palette_rainbow(t_data *data)
 	data->palette.saturation = 0.85;
 	data->palette.value = 0.90;
 	data->tui.palette = "Palette : rainbow";
+	data->tui.title_color = 0x00FFFFFF;
+	data->tui.text_color = 0x00CCCCCC;
 }
 void	palette_cold(t_data *data)
 {
@@ -50,6 +52,8 @@ void	palette_cold(t_data *data)
 	data->palette.saturation = 1.0;
 	data->palette.value = 1.0;
 	data->tui.palette = "Palette : cold";
+	data->tui.title_color = 0x0000FFFF;
+	data->tui.text_color = 0x0088CCFF;
 }
 void	palette_warm(t_data *data)
 {
@@ -58,7 +62,10 @@ void	palette_warm(t_data *data)
 	data->palette.saturation = 1.0;
 	data->palette.value = 1.0;
 	data->tui.palette = "Palette : warm";
+	data->tui.title_color = 0x00FFAA00;
+	data->tui.text_color = 0x00FFDD88;
 }
+
 void	palette_ocean(t_data *data)
 {
 	data->palette.hue_start = 180;
@@ -66,4 +73,6 @@ void	palette_ocean(t_data *data)
 	data->palette.saturation = 0.8;
 	data->palette.value = 0.8;
 	data->tui.palette = "Palette : ocean";
+	data->tui.title_color = 0x0000DDFF;
+	data->tui.text_color = 0x0088DDFF;
 }

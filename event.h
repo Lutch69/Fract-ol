@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 14:37:28 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/10 10:27:12 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 21:06:56 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 	# define KEY_PRESS 2
 	# define KEY_SPACE 32
 	# define KEY_R 114
+	# define KEY_P
 	# define KEY_MIN 45
 	# define KEY_PLUS 61
 	# define KEY_PRESSMASK 1L << 0
@@ -50,6 +51,7 @@
 	# define KEY_PRESS 2
 	# define KEY_W 13
 	# define KEY_S 1
+	# define KEY_P 35
 	# define KEY_PRESSMASK 0
 	# define BUTTON_PRESS_MASK 0
 	# define BUTTON_RELEASE_MASK 0

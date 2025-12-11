@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 15:43:25 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:27:49 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@ int	put_color_to_pixel(t_data *data, int iter)
 	int		color_pix;
 	double	logari;
 
-	if (data->x < WIDTH / 5 && data->y < HEIGHT / 20)
+	if (data->flag_tui > 0 && data->x < data->tui.width_ui && data->y < HEIGHT / 20)
 		return (0x00000000);
-	if (data->x < WIDTH / 5 && data->y < HEIGHT / 4.7 && data->y > HEIGHT / 5.7)
+	if (data->flag_tui > 0 && data->x < data->tui.width_ui && data->y < HEIGHT / 4.7 && data->y > HEIGHT / 5.7)
 		return (0x00000000);
-	else if (data->x < WIDTH / 5)
+	else if (data->flag_tui > 0 && data->x < WIDTH / 5)
 		return (0x00333333);
-	else if (data->x < (WIDTH / 5) + 5)
+	else if (data->flag_tui > 0 && data->x < data->tui.width_ui && data->y < HEIGHT - 50)
+		return (0x00000000);
+	else if (data->flag_tui > 0 && data->x < data->tui.width_ui + 5)
 		return (0x00000000);
 	else
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 11:29:54 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:20:06 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,9 @@ typedef struct s_tui
 	char		*type;
 	char		*palette;
 	char		*zoom;
+	int			title_color;
+	int			text_color;
+	int			width_ui;
 }				t_tui;
 
 typedef struct s_data
@@ -128,6 +131,7 @@ typedef struct s_data
 	double			zoom;
 	double			step;
 	int				palette_id;
+	int				flag_tui;
 
 	t_tui			tui;
 	t_view			view;
