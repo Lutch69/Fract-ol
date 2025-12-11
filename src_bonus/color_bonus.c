@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/09 17:37:27 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:43:25 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ double	normalize_iteration(int iter)
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
-
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
@@ -35,7 +34,19 @@ int	put_color_to_pixel(t_data *data, int iter)
 {
 	int		color_pix;
 	double	logari;
-	logari = normalize_iteration(iter);
-	color_pix = to_hsv(&data->palette, logari);
+
+	if (data->x < WIDTH / 5 && data->y < HEIGHT / 20)
+		return (0x00000000);
+	if (data->x < WIDTH / 5 && data->y < HEIGHT / 4.7 && data->y > HEIGHT / 5.7)
+		return (0x00000000);
+	else if (data->x < WIDTH / 5)
+		return (0x00333333);
+	else if (data->x < (WIDTH / 5) + 5)
+		return (0x00000000);
+	else
+	{
+		logari = normalize_iteration(iter);
+		color_pix = to_hsv(&data->palette, logari);
+	}
 	return (color_pix);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/10 12:44:59 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 15:18:59 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

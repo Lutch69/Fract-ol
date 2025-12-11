@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:56:38 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 16:59:08 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/11 11:38:43 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	to_hsv(t_color_palette *palette , double logari)
 
 	if (logari < 0)
 		return (0x00000000);
-	h = palette->hue_start + (logari * palette->hue_range); //parcourir le cercle chromatique
+	h = palette->hue_start + (logari * palette->hue_range);
 	s = palette->saturation;
 	v = palette->value;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/10 12:17:06 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 11:29:54 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,13 @@ typedef struct s_mouse
 
 }		t_mouse;
 
+typedef struct s_tui
+{
+	char		*type;
+	char		*palette;
+	char		*zoom;
+}				t_tui;
+
 typedef struct s_data
 {
 	int				x;
@@ -122,6 +129,7 @@ typedef struct s_data
 	double			step;
 	int				palette_id;
 
+	t_tui			tui;
 	t_view			view;
 	t_img			img;
 	t_mouse			mouse;

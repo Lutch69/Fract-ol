@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/10 12:17:27 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 13:35:30 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	is_julia(int ac, char **av, t_data *data)
 	}
 	if (ac == 4 && check_float(av[2]) == 1 && check_float(av[3]) == 1)
 		convert_julia(av, data);
+	data->tui.type = "Type : JULIA";
 	init_julia(data);
 	init_image(data);
 	setup_re_im(data, 0);
@@ -118,6 +119,7 @@ void	is_mandelbrot(int ac, t_data *data)
 {
 	if (ac == 2)
 	{
+		data->tui.type = "Type : MANDELBROT";
 		data->center_re = -0.05;
 		init_image(data);
 		setup_re_im(data, 0);

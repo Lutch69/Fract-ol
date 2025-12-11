@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/10 12:14:24 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 15:45:18 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # define FRACTOL_BONUS_H
 
 # ifndef WIDTH
-#  define WIDTH 600
+#  define WIDTH 900
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 600
+#  define HEIGHT 900
 # endif
 
 # define MAX_ITER 100
@@ -39,7 +39,8 @@
 # include "struct_bonus.h"
 # include "../event.h"
 
-int		to_hsv(t_color_palette *palette , double logari);
+void	text_user_interface(t_data *data);
+int		to_hsv(t_color_palette *palette, double logari);
 int		put_color_to_pixel(t_data *data, int iter);
 int		render(t_data *data);
 void	pixel_to_complex(t_complex *c, t_data *data);
@@ -71,15 +72,15 @@ void	setup_center(t_data *data);
 
 // define palette
 void	change_palette(t_data *data);
-void	palette_rainbow(t_color_palette *palette);
-void	palette_cold(t_color_palette *palette);
-void	palette_warm(t_color_palette *palette);
-void	palette_forest(t_color_palette *palette);
-void	palette_night(t_color_palette *palette);
-void	palette_psychedelic(t_color_palette *palette);
-void	palette_grey(t_color_palette *palette);
-void	palette_ocean(t_color_palette *palette);
-void	palette_sunset(t_color_palette *palette);
+void	palette_rainbow(t_data *data);
+void	palette_cold(t_data *data);
+void	palette_warm(t_data *data);
+void	palette_forest(t_data *data);
+void	palette_night(t_data *data);
+void	palette_psychedelic(t_data *data);
+void	palette_grey(t_data *data);
+void	palette_ocean(t_data *data);
+void	palette_sunset(t_data *data);
 
 
 void	rotate_julia(t_data *data);

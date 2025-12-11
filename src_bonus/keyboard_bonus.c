@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/10 12:43:11 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 11:09:13 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	define_view(t_data *data, int keycode)
 			data->zoom = 0.1;
 		setup_re_im(data, 0);
 	}
-	if (keycode == KEY_R && data->fractal_type == JULIA) // touche R a set avec linux
+	if (keycode == KEY_R && data->fractal_type == JULIA) 
 		data->julia.auto_rotate = !data->julia.auto_rotate;
 	if (keycode == KEY_LEFT)
 		data->center_re -= data->step;

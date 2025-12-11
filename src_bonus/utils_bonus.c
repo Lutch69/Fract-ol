@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/10 13:21:27 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 13:35:38 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	is_burningship(int ac, t_data *data)
 		data->center_im = -0.03;
 		init_image(data);
 		data->zoom *= 1.6;
+		data->tui.type = "Type : BURNINGSHIP";
 		setup_re_im(data, 0);
-		palette_warm(&data->palette);
+		palette_warm(data);
 		event_mlx(data);
 	}
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_palette_color_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:08:41 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/09 11:05:35 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 13:35:47 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,54 +16,54 @@ void	change_palette(t_data *data)
 {
 	data->palette_id = (data->palette_id + 1) % 9;
 	if (data->palette_id == 0)
-		palette_rainbow(&data->palette);
+		palette_rainbow(data);
 	else if (data->palette_id == 1)
-		palette_cold(&data->palette);
+		palette_cold(data);
 	else if (data->palette_id == 2)
-		palette_warm(&data->palette);
+		palette_warm(data);
 	else if (data->palette_id == 3)
-		palette_forest(&data->palette);
+		palette_forest(data);
 	else if (data->palette_id == 4)
-		palette_night(&data->palette);
+		palette_night(data);
 	else if (data->palette_id == 5)
-		palette_psychedelic(&data->palette);
+		palette_psychedelic(data);
 	else if (data->palette_id == 6)
-		palette_grey(&data->palette);
+		palette_grey(data);
 	else if (data->palette_id == 7)
-		palette_ocean(&data->palette);
+		palette_ocean(data);
 	else
-		palette_sunset(&data->palette);
+		palette_sunset(data);
 }
 
-void	palette_rainbow(t_color_palette *palette)
+void	palette_rainbow(t_data *data)
 {
-	palette->hue_start = 0;
-	palette->hue_range = 360;
-	palette->saturation = 0.85;
-	palette->value = 0.90;
-	printf("palette rainbow\n");
+	data->palette.hue_start = 0;
+	data->palette.hue_range = 360;
+	data->palette.saturation = 0.85;
+	data->palette.value = 0.90;
+	data->tui.palette = "Palette : rainbow";
 }
-void	palette_cold(t_color_palette *palette)
+void	palette_cold(t_data *data)
 {
-	palette->hue_start = 180;
-	palette->hue_range = 120;
-	palette->saturation = 1.0;
-	palette->value = 1.0;
-	printf("palette cold\n");
+	data->palette.hue_start = 180;
+	data->palette.hue_range = 120;
+	data->palette.saturation = 1.0;
+	data->palette.value = 1.0;
+	data->tui.palette = "Palette : cold";
 }
-void	palette_warm(t_color_palette *palette)
+void	palette_warm(t_data *data)
 {
-	palette->hue_start = 0;
-	palette->hue_range = 60;
-	palette->saturation = 1.0;
-	palette->value = 1.0;
-	printf("palette warm\n");
+	data->palette.hue_start = 0;
+	data->palette.hue_range = 60;
+	data->palette.saturation = 1.0;
+	data->palette.value = 1.0;
+	data->tui.palette = "Palette : warm";
 }
-void	palette_ocean(t_color_palette *palette)
+void	palette_ocean(t_data *data)
 {
-	palette->hue_start = 180;
-	palette->hue_range = 60;
-	palette->saturation = 0.8;
-	palette->value = 0.8;
-	printf ("palette ocean\n");
+	data->palette.hue_start = 180;
+	data->palette.hue_range = 60;
+	data->palette.saturation = 0.8;
+	data->palette.value = 0.8;
+	data->tui.palette = "Palette : ocean";
 }

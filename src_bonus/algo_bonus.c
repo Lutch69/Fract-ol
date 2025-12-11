@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/10 13:24:59 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/11 11:20:11 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	render(t_data *data)
 		data->x++;
 	}
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.ptr, 0, 0);
+	text_user_interface(data);
 	return (0);
 }
 
