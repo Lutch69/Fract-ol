@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 23:44:24 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 09:05:43 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,38 @@ void	key_plusmin(t_data *data, int keycode)
 		else if (keycode == KEY_MIN)
 			data->julia.radius *= 0.8;
 	}
-	// if (data->fractal_type == PHOENIX)
-	// {
-	// 	if (keycode == KEY_PLUS)
-	// 		data->phoenix.radius *= 1.2;
-	// 	else if (keycode == KEY_MIN)
-	// 		data->phoenix.radius *= 0.8;
-	// }
+	if (data->fractal_type == PHOENIX)
+	{
+		if (keycode == KEY_PLUS)
+			data->phoenix.radius *= 1.2;
+		else if (keycode == KEY_MIN)
+			data->phoenix.radius *= 0.8;
+	}
 }
 
 void	key_r(t_data *data)
 {
-	data->julia.auto_rotate = !data->julia.auto_rotate;
-	if (data->julia.auto_rotate)
+	if (data->fractal_type == JULIA)
 	{
-		data->center_re = 0.0;
-		data->center_im = 0.0;
-		data->zoom = 1.0;
-		setup_re_im(data, 0);
+		data->julia.auto_rotate = !data->julia.auto_rotate;
+		if (data->julia.auto_rotate)
+		{
+			data->center_re = 0.0;
+			data->center_im = 0.0;
+			data->zoom = 1.0;
+			setup_re_im(data, 0);
+		}
+	}
+	if (data->fractal_type == PHOENIX)
+	{
+		data->phoenix.auto_rotate = !data->phoenix.auto_rotate;
+		if (data->phoenix.auto_rotate)
+		{
+			data->center_re = 0.0;
+			data->center_im = 0.0;
+			data->zoom = 1.0;
+			setup_re_im(data, 0);
+		}
 	}
 }
 
@@ -75,8 +89,8 @@ void	define_keypress(t_data *data, int keycode)
 			data->zoom = 0.1;
 		setup_re_im(data, 0);
 	}
-	if (keycode == KEY_R && data->fractal_type == JULIA)
-		data->julia.auto_rotate = !data->julia.auto_rotate;
+	if (keycode == KEY_R)
+		key_r(data);
 	if (keycode == KEY_LEFT)
 		data->center_re -= data->step;
 	if (keycode == KEY_RIGHT)
@@ -88,4 +102,3 @@ void	define_keypress(t_data *data, int keycode)
 	if (keycode == KEY_ESC)
 		close_prog(data);
 }
-

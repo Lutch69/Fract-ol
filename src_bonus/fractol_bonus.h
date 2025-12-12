@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 23:44:09 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 09:20:45 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ int		iter_burningship(double c_re, double c_im);
 void	is_tricorn(int ac, t_data *data);
 int		iter_tricorn(double c_re, double c_im);
 
+// Fonction for phoenix
+void	is_phoenix(int ac, t_data *data);
+int		iter_phoenix(double c_re, double c_im, t_data *data);
+void	rotate_phoenix(t_data *data);
+
 // Fonction KEYBOARD
 void	key_plusmin(t_data *data, int keycode);
 void	key_r(t_data *data);
@@ -80,6 +85,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
 // Fonction for RENDERING
 int		render(t_data *data);
+void	define_rotate(t_data *data);
 void	pixel_to_complex(t_complex *c, t_data *data);
 
 // Fonction for PARSING && UTILITY

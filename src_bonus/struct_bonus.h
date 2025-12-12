@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 23:37:04 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 09:06:20 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,9 @@ typedef struct s_phoenix
 	t_complex		c;
 	t_complex		p;
 	double			angle;
-	double			angle_p;
 	double			radius;
-	double			radius_p;
 	double			center_re;
-	double			center_p_re;
 	double			center_im;
-	double			center_p_im;
 	int				auto_rotate;
 }					t_phoenix;
 

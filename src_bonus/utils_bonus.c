@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 22:44:13 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 09:29:12 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	print_usage(void)
 	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable ", 2);
 	ft_putstr_fd("fractals:\n\t\t   MANDELBROT\n\t\t   JULIA [c_real]", 2);
 	ft_putstr_fd(" [c_imaginary]\n\t\t   TRICORN\n\t\t   BURNINGSHIP\n", 2);
+	ft_putstr_fd("\t\t   PHOENIX\n", 2);
 	exit(EXIT_FAILURE);
 }
 // Close & free

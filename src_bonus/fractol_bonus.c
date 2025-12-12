@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:07:40 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 22:25:02 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 09:22:04 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int	main(int ac, char **av)
 			is_mandelbrot(ac, &data);
 		else if (data.fractal_type == BURNINGSHIP)
 			is_burningship(ac, &data);
-		else
+		else if (data.fractal_type == TRICORN)
 			is_tricorn(ac, &data);
+		else
+			is_phoenix(ac, &data);
 	}
 	return (0);
 }

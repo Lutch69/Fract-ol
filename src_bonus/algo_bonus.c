@@ -6,7 +6,7 @@
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 22:53:09 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 09:19:33 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	render(t_data *data)
 	int			color;
 
 	data->x = 0;
-	if (data->julia.auto_rotate && data->fractal_type == JULIA)
-		rotate_julia(data);
+	define_rotate(data);
 	while (data->x < WIDTH)
 	{
 		data->y = 0;
@@ -55,8 +54,10 @@ int	iter_fractal(t_data *data, t_complex *c)
 				data->julia.complex.im);
 	else if (data->fractal_type == BURNINGSHIP)
 		iter = iter_burningship(c->re, c->im);
-	else
+	else if (data->fractal_type == TRICORN)
 		iter = iter_tricorn(c->re, c->im);
+	else
+		iter = iter_phoenix(c->re, c->im, data);
 	return (iter);
 }
 // Setting up complex coordinates
@@ -82,4 +83,11 @@ void	rotate_julia(t_data *data)
 		* cos(data->julia.angle);
 	data->julia.complex.im = data->julia.center_im + data->julia.radius
 		* sin(data->julia.angle);
+}
+void	define_rotate(t_data *data)
+{
+	if (data->julia.auto_rotate && data->fractal_type == JULIA)
+		rotate_julia(data);
+	else if (data->phoenix.auto_rotate && data->fractal_type == PHOENIX)
+		rotate_phoenix(data);
 }
