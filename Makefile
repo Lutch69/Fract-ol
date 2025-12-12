@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
+#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/12/12 09:21:12 by lucasdebarn      ###   ########.fr        #
+#    Updated: 2025/12/12 15:52:07 by ludebarn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ UNAME_S := $(shell uname -s)
 
 # Lib personelle
 LIBFT = ../libft
-PRINTF = ../printf
 
 # Repertoires
 OBJ_DIR_BONUS = object_bonus
@@ -52,7 +51,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
 # Chemins d'inclusion communs
-INCLUDES = -I . -I $(LIBFT) -I $(PRINTF)/
+INCLUDES = -I . -I $(LIBFT)/
 
 # Configuartion au systeme graphique
 ifeq ($(UNAME_S),Linux)
@@ -77,7 +76,7 @@ endif
 INCLUDES += -I $(MLX_DIR)
 
 # Bibliothèques personnelles
-LIBRARY_PATH = -L$(LIBFT) -L$(PRINTF)
+LIBRARY_PATH = -L$(LIBFT)
 LIBRARIES = -lft
 
 # Custom
@@ -91,14 +90,12 @@ bonus: $(NAME_BONUS)
 $(NAME): $(MLX_LIB) $(OBJS)
 	@echo "\n🔗 Linkage pour $(OS_MSG)..."
 	@make -s -C $(LIBFT)
-	@make -s -C $(PRINTF)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBRARY_PATH) $(LIBRARIES) $(MLX_FLAGS) -o $(NAME)
 	@echo "✅ Compilation terminée pour la partie mandatory sous $(OS_MSG) !"
 
 $(NAME_BONUS): $(MLX_LIB) $(OBJS_BONUS)
 	@echo "\n🔗 Linkage pour $(OS_MSG)..."
 	@make -s -C $(LIBFT)
-	@make -s -C $(PRINTF)
 	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBRARY_PATH) $(LIBRARIES) $(MLX_FLAGS) -o $(NAME_BONUS)
 	@echo "✅ Compilation terminée pour les bonus sous $(OS_MSG) !"
 
@@ -124,7 +121,6 @@ clean:
 	@echo "🧹 Nettoyage des fichiers objets..."
 	@rm -rf $(OBJ_DIR) $(OBJ_DIR_BONUS)
 	@make -C $(LIBFT) clean
-	@make -C $(PRINTF) clean
 	@make -C $(MLX_DIR) clean
 	@echo "✅ Nettoyage terminé !"
 
@@ -133,7 +129,6 @@ fclean: clean
 	@echo "🧹 Nettoyage complet..."
 	@rm -f $(NAME) $(NAME_BONUS)
 	@make -C $(LIBFT) fclean
-	@make -C $(PRINTF) fclean
 	@echo "✅ Nettoyage complet terminé !"
 
 # Recompilation complète

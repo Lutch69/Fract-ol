@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 09:20:45 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 13:27:26 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	mouse_to_complex(t_data *data);
 
 // Fonction for TUI && COLOR
 void	text_user_interface(t_data *data);
+void	get_coordinate_tui(t_data *data, double c_re, double c_im);
 int		to_hsv(t_color_palette *palette, double logari);
 int		put_color_to_pixel(t_data *data, int iter);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);

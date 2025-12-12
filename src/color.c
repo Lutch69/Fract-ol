@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 23:46:25 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 14:06:08 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_color(t_color *color, int iter)
 	color->g = (iter * 5) % 128;
 	color->b = (iter * 5) % 128;
 }
+
 // Fonction pour garder en mémoire la positions des pixels
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {

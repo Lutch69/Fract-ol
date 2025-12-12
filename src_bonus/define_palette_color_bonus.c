@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_palette_color_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:08:41 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 21:05:15 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 11:15:44 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	palette_rainbow(t_data *data)
 	data->tui.title_color = 0x00FFFFFF;
 	data->tui.text_color = 0x00CCCCCC;
 }
+
 void	palette_cold(t_data *data)
 {
 	data->palette.hue_start = 180;
@@ -55,6 +56,7 @@ void	palette_cold(t_data *data)
 	data->tui.title_color = 0x0000FFFF;
 	data->tui.text_color = 0x0088CCFF;
 }
+
 void	palette_warm(t_data *data)
 {
 	data->palette.hue_start = 0;

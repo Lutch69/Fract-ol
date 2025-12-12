@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/07 12:54:51 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 14:06:02 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	print_usage(void)
 {
-	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable fractals:\n\t\t   mandelbrot\n\t\t   julia [c_real] [c_imaginary]\n",
-		2);
+	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable ", 2);
+	ft_putstr_fd("fractals:\n\t\t   MANDELBROT\n\t\t   JULIA [c_real] ", 2);
+	ft_putstr_fd("[c_imaginary]\n", 2);
 	exit(EXIT_FAILURE);
 }
+
 // convert coordinate for julia
 void	convert_julia(char **av, t_data *data)
 {
@@ -35,6 +37,7 @@ void	convert_julia(char **av, t_data *data)
 		print_usage();
 	}
 }
+
 // Close & free
 int	close_prog(void *param)
 {
@@ -43,7 +46,7 @@ int	close_prog(void *param)
 	data = (t_data *)param;
 	mlx_destroy_image(data->mlx_ptr, data->img.ptr);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	// mlx_destroy_display(data->mlx_ptr);
+	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
 	exit(0);
 }

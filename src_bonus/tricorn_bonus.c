@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tricorn_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 22:19:19 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 22:25:40 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 13:29:28 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	is_tricorn(int ac, t_data *data)
 	{
 		data->tui.type = "Type : TRICORN";
 		data->center_re = -0.05;
+		data->center_im = 0.0;
+		get_coordinate_tui(data, data->center_re, data->center_im);
 		init_image(data);
 		setup_re_im(data, 0);
 		event_mlx(data);

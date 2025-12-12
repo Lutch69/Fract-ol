@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 21:27:49 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 13:41:02 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	put_color_to_pixel(t_data *data, int iter)
 	if (data->flag_tui > 0 && data->x < data->tui.width_ui && data->y < HEIGHT
 		/ 20)
 		return (0x00000000);
-	if (data->flag_tui > 0 && data->x < data->tui.width_ui && data->y < HEIGHT
-		/ 4.7 && data->y > HEIGHT / 5.7)
+	if (data->flag_tui > 0 && data->x < data->tui.width_ui && data->y < 300
+		&& data->y > 250)
 		return (0x00000000);
 	else if (data->flag_tui > 0 && data->x < WIDTH / 5)
 		return (0x00333333);

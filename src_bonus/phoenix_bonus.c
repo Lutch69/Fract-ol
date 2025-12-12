@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phoenix_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 23:01:23 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 09:51:36 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 14:25:15 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ void	init_phoenix(t_data *data)
 		* sin(data->phoenix.angle);
 	data->center_re = 0.0;
 	data->center_im = 0.0;
+	get_coordinate_tui(data, data->phoenix.center_re,
+		data->phoenix.center_im);
 }
+
 void	random_phoenix(t_data *data, int random_index)
 {
 	if (random_index == 0)
@@ -80,7 +83,7 @@ void	random_phoenix(t_data *data, int random_index)
 		data->phoenix.center_re = 0.5667;
 		data->phoenix.center_im = 0.0;
 		data->phoenix.p.re = -0.5;
-		data->phoenix.p.im = 0.0;
+		data->phoenix.p.im = 0.667;
 		data->phoenix.radius = 0.1;
 	}
 	if (random_index == 1)

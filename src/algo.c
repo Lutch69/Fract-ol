@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/06 15:33:51 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/12 14:03:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,9 @@ int	mandelbrot_iter(double c_re, double c_im)
 	}
 	return (i);
 }
-// Julia's algorithm calculates the square of the sum and adds the real and imaginary coordinates
+
+// Julia's algorithm calculates the square of the sum and
+// adds the real and imaginary coordinates
 int	julia_iter(double c_re, double c_im, double julia_re, double julia_im)
 {
 	t_complex	z;

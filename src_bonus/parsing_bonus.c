@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 09:28:33 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 11:17:54 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	fractal_type(char **av, t_data *data)
 	if (data->fractal_type == MANDELBROT || data->fractal_type == JULIA
 		|| data->fractal_type == BURNINGSHIP || data->fractal_type == TRICORN
 		|| data->fractal_type == PHOENIX)
-		return(1);
+		return (1);
 	else
-		return(0);
+		return (0);
 }

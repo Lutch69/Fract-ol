@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:32:13 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 21:59:30 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 13:30:47 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ void	is_julia(int ac, char **av, t_data *data)
 	data->tui.type = "Type : JULIA";
 	init_julia(data);
 	init_image(data);
+	get_coordinate_tui(data, data->julia.complex.re, data->julia.complex.im);
 	setup_re_im(data, 0);
 	event_mlx(data);
 }
 
-// Julia's algorithm calculates the square of the sum and adds the real and imaginary coordinates
+// Julia's algorithm calculates the square of the sum and adds
+// the real and imaginary coordinates
 int	iter_julia(double c_re, double c_im, double julia_re, double julia_im)
 {
 	t_complex	z;
@@ -57,6 +59,7 @@ int	iter_julia(double c_re, double c_im, double julia_re, double julia_im)
 	}
 	return (i);
 }
+
 // Convert coordinate from av
 void	convert_julia(char **av, t_data *data)
 {
@@ -73,6 +76,7 @@ void	convert_julia(char **av, t_data *data)
 		print_usage();
 	}
 }
+
 // Take a random fractal with srand
 void	random_julia(t_data *data, int random_index)
 {
@@ -102,6 +106,7 @@ void	random_julia(t_data *data, int random_index)
 		data->julia.complex.im = 0.2705;
 	}
 }
+
 // Initialization julia's structure
 void	init_julia(t_data *data)
 {

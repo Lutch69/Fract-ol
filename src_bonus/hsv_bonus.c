@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hsv_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:56:38 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 21:45:13 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 11:15:56 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	to_hsv(t_color_palette *palette, double logari)
 		h -= 360.0;
 	return (hsv_to_rgb(&palette->hsv, h, s, v));
 }
+
 static void	rgb_converter2(t_hsv *hsv, t_rgb *rgb)
 {
 	if (hsv->part == 3)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 09:19:33 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 16:07:34 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	iter_fractal(t_data *data, t_complex *c)
 		iter = iter_phoenix(c->re, c->im, data);
 	return (iter);
 }
+
 // Setting up complex coordinates
 void	pixel_to_complex(t_complex *c, t_data *data)
 {
@@ -73,7 +74,9 @@ void	pixel_to_complex(t_complex *c, t_data *data)
 		c->im = data->view.max_im - data->y * (data->view.max_im
 				- data->view.min_im) / (double)HEIGHT;
 }
-// Rotate fractal julia stay with angle under 0 and 2pi and calcul new position de c on circle
+
+// Rotate fractal julia stay with angle under 0 and 2pi
+// and calcul new position de c on circle
 void	rotate_julia(t_data *data)
 {
 	data->julia.angle += 0.015;
@@ -84,6 +87,7 @@ void	rotate_julia(t_data *data)
 	data->julia.complex.im = data->julia.center_im + data->julia.radius
 		* sin(data->julia.angle);
 }
+
 void	define_rotate(t_data *data)
 {
 	if (data->julia.auto_rotate && data->fractal_type == JULIA)

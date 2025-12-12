@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:40:46 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 22:22:13 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/12 13:28:45 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	is_mandelbrot(int ac, t_data *data)
 	{
 		data->tui.type = "Type : MANDELBROT";
 		data->center_re = -0.05;
+		data->center_im = 0.0;
 		init_image(data);
+		get_coordinate_tui(data, data->center_re, data->center_im);
 		setup_re_im(data, 0);
 		event_mlx(data);
 	}

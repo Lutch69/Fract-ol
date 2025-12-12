@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 15:34:35 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/12 14:03:37 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	mouse_move(int x, int y, void *param)
 	data->mouse.y = y;
 	return (0);
 }
+
 // Definir les coordonnées complex et les ratio par rapport au curseur
 void	mouse_to_complex(t_data *data)
 {
@@ -32,6 +33,7 @@ void	mouse_to_complex(t_data *data)
 	data->mouse.ratio_x = (data->mouse.x - WIDTH / 2.0) / WIDTH;
 	data->mouse.ratio_y = (data->mouse.y - HEIGHT / 2.0) / HEIGHT;
 }
+
 // Fonction d'évènement pour scroll
 int	mouse_hook(int button, int x, int y, void *param)
 {
