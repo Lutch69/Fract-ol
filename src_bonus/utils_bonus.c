@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 15:52:54 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 17:03:30 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_usage(void)
 {
-	ft_putstr_fd("Usage: ./fractol <fractal_type> [parameters]\nAvailable ", 2);
-	ft_putstr_fd("fractals:\n\t\t   MANDELBROT\n\t\t   JULIA [c_real]", 2);
+	ft_putstr_fd("Usage: ./fractol_bonus <fractal_type> [parameters]\n", 2);
+	ft_putstr_fd("Available fractals:\n\t\t   MANDELBROT\n\t\t   JULIA [c_real]", 2);
 	ft_putstr_fd(" [c_imaginary]\n\t\t   TRICORN\n\t\t   BURNINGSHIP\n", 2);
 	ft_putstr_fd("\t\t   PHOENIX\n", 2);
 	exit(EXIT_FAILURE);

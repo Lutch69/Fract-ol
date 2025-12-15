@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 23:01:23 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 14:25:15 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:13:07 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	is_phoenix(int ac, t_data *data)
 		print_usage();
 }
 
-int	iter_phoenix(double c_re, double c_im, t_data *data)
+int	iter_phoenix(t_data *data, double c_re, double c_im)
 {
 	double	z[4];
 	double	temp_re;
@@ -40,7 +40,7 @@ int	iter_phoenix(double c_re, double c_im, t_data *data)
 	z[2] = 0.0;
 	z[3] = 0.0;
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < data->max_iter)
 	{
 		temp_re = z[0];
 		temp_im = z[1];

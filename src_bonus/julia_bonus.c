@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:32:13 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 13:30:47 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:11:26 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,7 @@ void	is_julia(int ac, char **av, t_data *data)
 
 	random_index = rand() % 5;
 	if (ac == 2)
-	{
 		random_julia(data, random_index);
-		// A changer en ft_printf
-		printf("c_real = [%f]\nc_imaginary = [%f]\n", data->julia.complex.re,
-			data->julia.complex.im);
-	}
 	if (ac == 4 && check_float(av[2]) == 1 && check_float(av[3]) == 1)
 		convert_julia(av, data);
 	data->tui.type = "Type : JULIA";
@@ -37,7 +32,7 @@ void	is_julia(int ac, char **av, t_data *data)
 
 // Julia's algorithm calculates the square of the sum and adds
 // the real and imaginary coordinates
-int	iter_julia(double c_re, double c_im, double julia_re, double julia_im)
+int	iter_julia(t_data *data, double c_re, double c_im)
 {
 	t_complex	z;
 	double		temp_re;
@@ -47,12 +42,12 @@ int	iter_julia(double c_re, double c_im, double julia_re, double julia_im)
 	z.re = c_re;
 	z.im = c_im;
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < data->max_iter)
 	{
 		temp_re = (z.re * z.re - z.im * z.im);
 		temp_im = (2 * z.re * z.im);
-		z.re = temp_re + julia_re;
-		z.im = temp_im + julia_im;
+		z.re = temp_re + data->julia.complex.re;
+		z.im = temp_im + data->julia.complex.im;
 		if (z.re * z.re + z.im * z.im > 4.00)
 			break ;
 		i++;
@@ -63,16 +58,16 @@ int	iter_julia(double c_re, double c_im, double julia_re, double julia_im)
 // Convert coordinate from av
 void	convert_julia(char **av, t_data *data)
 {
-	data->julia.complex.re = atof(av[2]); // ft_atof
-	data->julia.complex.im = atof(av[3]);
+	data->julia.complex.re = ft_atof(av[2]);
+	data->julia.complex.im = ft_atof(av[3]);
 	if (data->julia.complex.re > INT_MAX || data->julia.complex.re < INT_MIN)
 	{
-		printf("Invalid int : [%f]\n", data->julia.complex.re); // ft_printf
+		ft_printf("Invalid int : [%.2f]\n", data->julia.complex.re);
 		print_usage();
 	}
 	if (data->julia.complex.im > INT_MAX || data->julia.complex.im < INT_MIN)
 	{
-		printf("Invalid int : [%f]\n", data->julia.complex.im);
+		ft_printf("Invalid int : [%.2f]\n", data->julia.complex.im);
 		print_usage();
 	}
 }

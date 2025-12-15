@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 09:05:43 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/15 16:25:57 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	key_press(int keycode, void *param)
 		data->flag_tui *= -1;
 	if (keycode == KEY_MIN || keycode == KEY_PLUS)
 		key_plusmin(data, keycode);
+	if (keycode == KEY_Q)
+		data->max_iter += 50;
+	if (keycode == KEY_A)
+		data->max_iter -= 50;
 	define_keypress(data, keycode);
 	setup_re_im(data, 0);
 	return (0);
@@ -74,7 +78,6 @@ void	key_r(t_data *data)
 	}
 }
 
-// Fonction de déplacement grace au flèches
 void	define_keypress(t_data *data, int keycode)
 {
 	if (keycode == KEY_W)

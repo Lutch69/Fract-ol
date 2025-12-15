@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 14:06:02 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:54:31 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,12 @@ void	convert_julia(char **av, t_data *data)
 	data->julia.complex.im = atof(av[3]);
 	if (data->julia.complex.re > INT_MAX || data->julia.complex.re < INT_MIN)
 	{
-		printf("Invalid int : [%f]\n", data->julia.complex.re);
-			// a changer en ft_printf
+		ft_printf("Invalid int : [%.2f]\n", data->julia.complex.re);
 		print_usage();
 	}
 	if (data->julia.complex.im > INT_MAX || data->julia.complex.im < INT_MIN)
 	{
-		printf("Invalid int : [%f]\n", data->julia.complex.im);
+		ft_printf("Invalid int : [%.2f]\n", data->julia.complex.im);
 		print_usage();
 	}
 }

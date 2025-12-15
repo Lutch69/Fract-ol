@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 22:19:19 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 13:29:28 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:12:35 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	is_tricorn(int ac, t_data *data)
 		print_usage();
 }
 
-int	iter_tricorn(double c_re, double c_im)
+int	iter_tricorn(t_data *data, double c_re, double c_im)
 {
 	t_complex	z;
 	double		temp_re;
@@ -37,7 +37,7 @@ int	iter_tricorn(double c_re, double c_im)
 
 	ft_memset(&z, 0, sizeof(z));
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < data->max_iter)
 	{
 		temp_re = (z.re * z.re - z.im * z.im);
 		temp_im = -(2 * z.re * z.im);

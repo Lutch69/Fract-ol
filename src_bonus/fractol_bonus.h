@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 13:27:26 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:22:20 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,18 @@
 # define FRACTOL_BONUS_H
 
 # ifndef WIDTH
-#  define WIDTH 900
+#  define WIDTH 1200
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 900
+#  define HEIGHT 1200
 # endif
-
-# define MAX_ITER 100
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
 # endif
 
 # include "../../libft/libft.h"
-# include "../../printf/ft_printf.h"
 # include "../event.h"
 # include "mlx.h"
 # include "struct_bonus.h"
@@ -43,25 +40,25 @@
 void	is_julia(int ac, char **av, t_data *data);
 void	convert_julia(char **av, t_data *data);
 void	init_julia(t_data *data);
-int		iter_julia(double c_re, double c_im, double julia_re, double julia_im);
+int		iter_julia(t_data *data, double c_re, double c_im);
 void	random_julia(t_data *data, int random_index);
 void	rotate_julia(t_data *data);
 
 // Fonction for MANDELBROT
-int		iter_mandelbrot(double c_re, double c_im);
+int		iter_mandelbrot(t_data *data, double c_re, double c_im);
 void	is_mandelbrot(int ac, t_data *data);
 
 // Fonction for BURNINGSHIP
 void	is_burningship(int ac, t_data *data);
-int		iter_burningship(double c_re, double c_im);
+int		iter_burningship(t_data *data, double c_re, double c_im);
 
 // Fonction for TRICORN
 void	is_tricorn(int ac, t_data *data);
-int		iter_tricorn(double c_re, double c_im);
+int		iter_tricorn(t_data *data, double c_re, double c_im);
 
 // Fonction for phoenix
 void	is_phoenix(int ac, t_data *data);
-int		iter_phoenix(double c_re, double c_im, t_data *data);
+int		iter_phoenix(t_data *data, double c_re, double c_im);
 void	rotate_phoenix(t_data *data);
 
 // Fonction KEYBOARD

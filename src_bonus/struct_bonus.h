@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:24:16 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 11:29:45 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:05:46 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ typedef struct s_tui
 	int				width_ui;
 	char			*c_re;
 	char			*c_im;
+	char			*max_iter;
 }					t_tui;
 
 typedef struct s_data
@@ -147,6 +148,7 @@ typedef struct s_data
 	double			step;
 	int				palette_id;
 	int				flag_tui;
+	int				max_iter;
 
 	t_tui			tui;
 	t_view			view;

@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 16:07:34 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:08:01 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,15 @@ int	iter_fractal(t_data *data, t_complex *c)
 	int	iter;
 
 	if (data->fractal_type == MANDELBROT)
-		iter = iter_mandelbrot(c->re, c->im);
+		iter = iter_mandelbrot(data, c->re, c->im);
 	else if (data->fractal_type == JULIA)
-		iter = iter_julia(c->re, c->im, data->julia.complex.re,
-				data->julia.complex.im);
+		iter = iter_julia(data, c->re, c->im);
 	else if (data->fractal_type == BURNINGSHIP)
-		iter = iter_burningship(c->re, c->im);
+		iter = iter_burningship(data, c->re, c->im);
 	else if (data->fractal_type == TRICORN)
-		iter = iter_tricorn(c->re, c->im);
+		iter = iter_tricorn(data, c->re, c->im);
 	else
-		iter = iter_phoenix(c->re, c->im, data);
+		iter = iter_phoenix(data, c->re, c->im);
 	return (iter);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/08 13:37:22 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:52:11 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # endif
 
 # include "../../libft/libft.h"
-# include "../../printf/ft_printf.h"
 # include "../event.h"
 # include "mlx.h"
 # include "struct.h"

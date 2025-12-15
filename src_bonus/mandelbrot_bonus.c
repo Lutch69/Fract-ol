@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:40:46 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 13:28:45 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:17:12 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	is_mandelbrot(int ac, t_data *data)
 }
 
 // The Mandelbrot algorithm calculates the square of the sum and adds c
-int	iter_mandelbrot(double c_re, double c_im)
+int	iter_mandelbrot(t_data *data, double c_re, double c_im)
 {
 	t_complex	z;
 	double		temp_re;
@@ -39,7 +39,7 @@ int	iter_mandelbrot(double c_re, double c_im)
 
 	ft_memset(&z, 0, sizeof(z));
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < data->max_iter)
 	{
 		temp_re = (z.re * z.re - z.im * z.im);
 		temp_im = (2 * z.re * z.im);

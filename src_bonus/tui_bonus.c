@@ -6,13 +6,13 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 11:13:29 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 15:53:22 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:33:50 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	get_zoom(t_data *data);
+void	get_data_tui(t_data *data);
 void	fractol_v1(int *x, int *y, t_data *data);
 void	get_controls(int *x, int *y, t_data *data);
 void	others_controls(int *y, t_data *data);
@@ -24,18 +24,22 @@ void	text_user_interface(t_data *data)
 
 	y = HEIGHT / 32;
 	x = WIDTH / 15;
-	get_zoom(data);
+	get_data_tui(data);
 	fractol_v1(&x, &y, data);
 	get_controls(&x, &y, data);
 	others_controls(&y, data);
 }
 
-void	get_zoom(t_data *data)
+void	get_data_tui(t_data *data)
 {
 	char	*temp;
+	char	*temp2;
 
 	temp = ft_ftoa(data->zoom, 2);
 	data->tui.zoom = ft_strjoin("zoom : x", temp);
+	temp2 = ft_itoa(data->max_iter);
+	data->tui.max_iter = ft_strjoin("Details lvl : ", temp2);
+	free(temp2);
 	free(temp);
 }
 
@@ -64,11 +68,15 @@ void	fractol_v1(int *x, int *y, t_data *data)
 	*y += 30;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y,
 		data->tui.text_color, data->tui.c_im);
-	*y += 50;
+	*y += 30;
 }
 
 void	get_controls(int *x, int *y, t_data *data)
 {
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y,
+		data->tui.text_color, data->tui.max_iter);
+	free(data->tui.max_iter);
+	*y += 50;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, *x, *y,
 		data->tui.title_color, "CONTROLS");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, *x + 1, *y + 1,
@@ -86,13 +94,13 @@ void	get_controls(int *x, int *y, t_data *data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
 		"Move right : Arrow right");
 	*y += 30;
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
+		"Zoom in : W");
+	*y += 30;
 }
 
 void	others_controls(int *y, t_data *data)
 {
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
-		"Zoom in : W");
-	*y += 30;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
 		"Zoom out : S");
 	*y += 30;
@@ -110,4 +118,10 @@ void	others_controls(int *y, t_data *data)
 	*y += 30;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
 		"Display TUI : SPACE");
+	*y += 30;
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
+		"Increase details : Q");
+	*y += 30;
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, *y, data->tui.text_color,
+		"Decrease dettails : A");
 }

@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:46:21 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 13:59:00 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:06:49 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	is_burningship(int ac, t_data *data)
 }
 
 // Calculate the coordinate real and imaginary for Burningship
-int	iter_burningship(double c_re, double c_im)
+int	iter_burningship(t_data *data, double c_re, double c_im)
 {
 	double	z_re;
 	double	z_im;
@@ -42,7 +42,7 @@ int	iter_burningship(double c_re, double c_im)
 	z_re = 0.0;
 	z_im = 0.0;
 	i = 0;
-	while (i < MAX_ITER)
+	while (i < data->max_iter)
 	{
 		z_re = fabs(z_re);
 		z_im = fabs(z_im);

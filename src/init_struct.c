@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/06 15:34:08 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 15:12:36 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	setup_center(t_data *data)
 
 void	event_mlx(t_data *data)
 {
-	mlx_hook(data->win_ptr, ON_MOUSEMOVE, MOUSE_MASK, mouse_move, data);
+	mlx_hook(data->win_ptr, ON_MOUSEMOVE, 1L << 6, mouse_move, data);
 	mlx_mouse_hook(data->win_ptr, mouse_hook, data);
-	mlx_hook(data->win_ptr, KEY_PRESS, KEY_PRESSMASK, key_press, data);
+	mlx_hook(data->win_ptr, KEY_PRESS, 1L << 0, key_press, data);
 	mlx_hook(data->win_ptr, ON_DESTROY, 0, close_prog, data);
 	mlx_loop_hook(data->mlx_ptr, render, data);
 	mlx_loop(data->mlx_ptr);

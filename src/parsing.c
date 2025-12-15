@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 14:03:54 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/15 14:54:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,8 @@ void	is_julia(int ac, char **av, t_data *data)
 	if (ac == 2)
 	{
 		random_julia(data, random_index);
-		// A changer en ft_printf
-		printf("c_real = [%f]\nc_imaginary = [%f]\n", data->julia.complex.re,
-			data->julia.complex.im);
+		ft_printf("c_real = [%.2f]\nc_imaginary = [%.2f]\n",
+			data->julia.complex.re, data->julia.complex.im);
 	}
 	if (ac == 4 && check_float(av[2]) == 1 && check_float(av[3]) == 1)
 		convert_julia(av, data);
