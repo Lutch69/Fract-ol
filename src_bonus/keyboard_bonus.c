@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:25:57 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:14 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 // Fonction d'évènement pour touche appuyer
 int	key_press(int keycode, void *param)
@@ -25,9 +25,9 @@ int	key_press(int keycode, void *param)
 		data->flag_tui *= -1;
 	if (keycode == KEY_MIN || keycode == KEY_PLUS)
 		key_plusmin(data, keycode);
-	if (keycode == KEY_Q)
+	if (keycode == KEY_Q && data->max_iter < 1500)
 		data->max_iter += 50;
-	if (keycode == KEY_A)
+	if (keycode == KEY_A && data->max_iter > 50)
 		data->max_iter -= 50;
 	define_keypress(data, keycode);
 	setup_re_im(data, 0);

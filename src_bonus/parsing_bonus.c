@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 11:17:54 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:24 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 int	check_float(char *av);
 int	fractal_type(char **av, t_data *data);
@@ -75,7 +75,7 @@ int	fractal_type(char **av, t_data *data)
 			"TRICORN", 8) == 0 || ft_strncmp(av[1], "tricorn", 6) == 0)
 		data->fractal_type = TRICORN;
 	else if (((ft_strncmp(av[1], "Phoenix", 8)) == 0) || ft_strncmp(av[1],
-			"PHEONIX", 8) == 0 || ft_strncmp(av[1], "phoenix", 6) == 0)
+			"PHOENIX", 8) == 0 || ft_strncmp(av[1], "phoenix", 6) == 0)
 		data->fractal_type = PHOENIX;
 	if (data->fractal_type == MANDELBROT || data->fractal_type == JULIA
 		|| data->fractal_type == BURNINGSHIP || data->fractal_type == TRICORN

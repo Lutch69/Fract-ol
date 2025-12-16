@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 16:06:46 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/15 14:54:31 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:12:59 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../header/fractol.h"
 
 void	print_usage(void)
 {

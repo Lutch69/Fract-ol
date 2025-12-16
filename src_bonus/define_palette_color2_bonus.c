@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   define_palette_color2_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:19:30 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/11 21:05:09 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/16 14:14:55 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 void	palette_forest(t_data *data)
 {

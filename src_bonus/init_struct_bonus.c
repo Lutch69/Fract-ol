@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/15 16:06:13 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:05 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 // Initialisation des pointeurs pour la creation d'image
 void	init_image(t_data *data)

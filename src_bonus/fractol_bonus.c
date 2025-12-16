@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:07:40 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 09:22:04 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/16 14:14:58 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 int	main(int ac, char **av)
 {

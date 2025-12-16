@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:46:21 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:06:49 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:14:43 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 // Fonction for BURNINGSHIP
 void	is_burningship(int ac, t_data *data)

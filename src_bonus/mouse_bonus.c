@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/11 22:45:05 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 int	mouse_button_release(int button, int x, int y, void *param)
 {

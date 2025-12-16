@@ -6,13 +6,12 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:20:27 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:13:19 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../header/fractol.h"
 
-// Fonction de déplacement grace au flèches
 void	define_view(t_data *data, int keycode)
 {
 	if (keycode == KEY_W)
@@ -39,7 +38,6 @@ void	define_view(t_data *data, int keycode)
 		close_prog(data);
 }
 
-// Fonction d'évènement pour touche appuyer
 int	key_press(int keycode, void *param)
 {
 	t_data	*data;

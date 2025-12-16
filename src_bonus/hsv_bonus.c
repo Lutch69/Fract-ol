@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:56:38 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 11:15:56 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:03 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 static void	rgb_converter(t_hsv *hsv, t_rgb *rgb);
 static void	rgb_converter2(t_hsv *hsv, t_rgb *rgb);

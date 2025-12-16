@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/15 14:52:11 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:57 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # endif
 
 # include "../../libft/libft.h"
-# include "../event.h"
+# include "event.h"
 # include "mlx.h"
 # include "struct.h"
 # include <math.h>
@@ -52,8 +52,6 @@ void	is_julia(int ac, char **av, t_data *data);
 void	is_mandelbrot(int ac, t_data *data);
 void	event_mlx(t_data *data);
 void	convert_julia(char **av, t_data *data);
-
-// set up struct
 void	setup_re_im(t_data *data, int flag);
 void	init_color(t_color *color, int iter);
 void	init_image(t_data *data);

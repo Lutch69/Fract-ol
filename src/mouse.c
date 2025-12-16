@@ -6,13 +6,12 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:26:31 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 14:03:37 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:13:11 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../header/fractol.h"
 
-// Fonction d'évènement pour déplacement du curseur
 int	mouse_move(int x, int y, void *param)
 {
 	t_data	*data;
@@ -23,7 +22,6 @@ int	mouse_move(int x, int y, void *param)
 	return (0);
 }
 
-// Definir les coordonnées complex et les ratio par rapport au curseur
 void	mouse_to_complex(t_data *data)
 {
 	data->mouse.complex_x = data->view.min_re + data->mouse.x
@@ -34,7 +32,6 @@ void	mouse_to_complex(t_data *data)
 	data->mouse.ratio_y = (data->mouse.y - HEIGHT / 2.0) / HEIGHT;
 }
 
-// Fonction d'évènement pour scroll
 int	mouse_hook(int button, int x, int y, void *param)
 {
 	t_data	*data;

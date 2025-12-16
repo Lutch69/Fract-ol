@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 08:22:14 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 14:03:21 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:13:53 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../header/fractol.h"
 
 int		mandelbrot_iter(double c_re, double c_im);
 int		julia_iter(double c_re, double c_im, double julia_re, double julia_im);
@@ -44,7 +44,6 @@ int	render(t_data *data)
 	return (0);
 }
 
-// Setting up complex coordinates
 void	pixel_to_complex(t_complex *c, t_data *data)
 {
 	ft_memset(c, 0, sizeof(*c));
@@ -54,7 +53,6 @@ void	pixel_to_complex(t_complex *c, t_data *data)
 			- data->view.min_im) / (double)HEIGHT;
 }
 
-// The Mandelbrot algorithm calculates the square of the sum and adds c
 int	mandelbrot_iter(double c_re, double c_im)
 {
 	t_complex	z;
@@ -77,8 +75,6 @@ int	mandelbrot_iter(double c_re, double c_im)
 	return (i);
 }
 
-// Julia's algorithm calculates the square of the sum and
-// adds the real and imaginary coordinates
 int	julia_iter(double c_re, double c_im, double julia_re, double julia_im)
 {
 	t_complex	z;

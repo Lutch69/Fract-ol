@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 13:26:47 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/15 16:22:20 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:14:13 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # define FRACTOL_BONUS_H
 
 # ifndef WIDTH
-#  define WIDTH 1200
+#  define WIDTH 900
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 1200
+#  define HEIGHT 900
 # endif
 
 # ifndef M_PI
@@ -28,7 +28,7 @@
 # endif
 
 # include "../../libft/libft.h"
-# include "../event.h"
+# include "event.h"
 # include "mlx.h"
 # include "struct_bonus.h"
 # include <math.h>

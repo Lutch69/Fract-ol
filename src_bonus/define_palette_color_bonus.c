@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 17:08:41 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/12 11:15:44 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:14:50 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 void	change_palette(t_data *data)
 {

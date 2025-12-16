@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:32:13 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:11:26 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:11 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 // If fractal is julia
 void	is_julia(int ac, char **av, t_data *data)

@@ -6,13 +6,12 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/12 14:06:08 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:13:40 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../header/fractol.h"
 
-// Définitions des couleurs RGB
 void	init_color(t_color *color, int iter)
 {
 	ft_memset(color, 0, sizeof(color));
@@ -21,7 +20,6 @@ void	init_color(t_color *color, int iter)
 	color->b = (iter * 5) % 128;
 }
 
-// Fonction pour garder en mémoire la positions des pixels
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
@@ -30,7 +28,6 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-// Fonction pour coloré les pixels par rapport au positionnement dans la fractal
 int	put_color_to_pixel(int iter)
 {
 	t_color	color;

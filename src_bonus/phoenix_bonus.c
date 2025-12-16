@@ -6,14 +6,14 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 23:01:23 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:13:07 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:29 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 void	init_phoenix(t_data *data);
-void	random_phoenix(t_data *data, int random_index);
+void	define_phoenix(t_data *data);
 
 void	is_phoenix(int ac, t_data *data)
 {
@@ -21,6 +21,8 @@ void	is_phoenix(int ac, t_data *data)
 	{
 		init_phoenix(data);
 		init_image(data);
+		data->max_iter = 1000;
+		palette_warm(data);
 		setup_re_im(data, 0);
 		event_mlx(data);
 	}
@@ -59,49 +61,27 @@ int	iter_phoenix(t_data *data, double c_re, double c_im)
 
 void	init_phoenix(t_data *data)
 {
-	int	random_index;
-
-	random_index = rand() % 3;
 	data->tui.type = "Type : PHOENIX";
 	data->phoenix.angle = 0.0;
 	data->phoenix.auto_rotate = 0;
-	random_phoenix(data, random_index);
+	define_phoenix(data);
 	data->phoenix.c.re = data->phoenix.center_re + data->phoenix.radius
 		* cos(data->phoenix.angle);
 	data->phoenix.c.im = data->phoenix.center_im + data->phoenix.radius
 		* sin(data->phoenix.angle);
-	data->center_re = 0.0;
+	data->center_re = -0.3;
 	data->center_im = 0.0;
-	get_coordinate_tui(data, data->phoenix.center_re,
-		data->phoenix.center_im);
+	get_coordinate_tui(data, data->phoenix.c.re,
+		data->phoenix.c.im);
 }
 
-void	random_phoenix(t_data *data, int random_index)
+void	define_phoenix(t_data *data)
 {
-	if (random_index == 0)
-	{
-		data->phoenix.center_re = 0.5667;
-		data->phoenix.center_im = 0.0;
-		data->phoenix.p.re = -0.5;
-		data->phoenix.p.im = 0.667;
-		data->phoenix.radius = 0.1;
-	}
-	if (random_index == 1)
-	{
-		data->phoenix.center_re = 0.2;
-		data->phoenix.center_im = 0.0;
-		data->phoenix.p.re = -0.6;
-		data->phoenix.p.im = 0.2;
-		data->phoenix.radius = 0.2;
-	}
-	if (random_index == 2)
-	{
-		data->phoenix.center_re = 0.00;
-		data->phoenix.center_im = 0.0;
-		data->phoenix.p.re = -0.5;
-		data->phoenix.p.im = 0.4;
-		data->phoenix.radius = 0.15;
-	}
+	data->phoenix.center_re = 0.0;
+	data->phoenix.center_im = 0.0;
+	data->phoenix.p.re = -0.5;
+	data->phoenix.p.im = 0.667;
+	data->phoenix.radius = 0.176121;
 }
 
 void	rotate_phoenix(t_data *data)

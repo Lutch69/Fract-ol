@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 21:40:46 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:17:12 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:18 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 // Fonction for Mandelbrot
 void	is_mandelbrot(int ac, t_data *data)

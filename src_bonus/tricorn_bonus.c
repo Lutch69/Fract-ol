@@ -6,11 +6,11 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 22:19:19 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/15 16:12:35 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 14:15:32 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "../header/fractol_bonus.h"
 
 void	is_tricorn(int ac, t_data *data)
 {
