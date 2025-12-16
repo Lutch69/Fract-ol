@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:24:09 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/16 14:12:56 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:09:29 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	define_fractale(int ac, char **av, t_data *data)
 			data->fractal_type = JULIA;
 		else
 		{
-			printf("Error: Unknown fractal type '%s'\n", av[1]);
+			ft_printf("Error: Unknown fractal type '%s'\n", av[1]);
 			print_usage();
 		}
 	}

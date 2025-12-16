@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 12:39:34 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/16 14:14:47 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:14:26 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 double	normalize_iteration(t_data *data, int iter);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
-// Fonction pour coloré les pixels par rapport au positionnement dans la fractal
 int	put_color_to_pixel(t_data *data, int iter)
 {
 	int		color_pix;
@@ -52,7 +51,6 @@ double	normalize_iteration(t_data *data, int iter)
 	return (valeur_log);
 }
 
-// Fonction pour garder en mémoire la positions des pixels
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;

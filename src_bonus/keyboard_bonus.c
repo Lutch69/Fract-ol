@@ -6,13 +6,12 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:13:39 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/12/16 14:15:14 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:14:50 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/fractol_bonus.h"
 
-// Fonction d'évènement pour touche appuyer
 int	key_press(int keycode, void *param)
 {
 	t_data	*data;

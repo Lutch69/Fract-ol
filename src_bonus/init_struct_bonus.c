@@ -6,13 +6,12 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:28:12 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/12/16 14:15:05 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:14:10 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/fractol_bonus.h"
 
-// Initialisation des pointeurs pour la creation d'image
 void	init_image(t_data *data)
 {
 	ft_memset(&data->img, 0, sizeof(&data->img));
@@ -29,7 +28,6 @@ void	init_image(t_data *data)
 			&data->img.line_length, &data->img.endian);
 }
 
-// Nouveau setup dans du range de l'image par rapport au zoom
 void	range_setup(t_data *data)
 {
 	data->view.real_range = 3.5 / data->zoom;
@@ -37,7 +35,6 @@ void	range_setup(t_data *data)
 		/ (double)WIDTH;
 }
 
-// Setup des limites imaginaire et réel pour le positionement dans la fractale
 void	setup_re_im(t_data *data, int flag)
 {
 	range_setup(data);
@@ -49,7 +46,6 @@ void	setup_re_im(t_data *data, int flag)
 	data->view.max_im = data->center_im + data->view.imag_range / 2.00;
 }
 
-// Setup du centre imaginaire et réel
 void	setup_center(t_data *data)
 {
 	data->center_re = data->mouse.complex_x - (data->mouse.ratio_x
