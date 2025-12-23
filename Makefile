@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
+#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/28 15:13:41 by ludebarn          #+#    #+#              #
-#    Updated: 2025/12/16 14:26:51 by ludebarn         ###   ########.fr        #
+#    Updated: 2025/12/23 15:23:51 by lucasdebarn      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,15 @@ ifeq ($(UNAME_S),Linux)
 	MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 	CFLAGS += -D LINUX=1
 	OS_MSG = Linux 🐧
+endif
+
+ifeq ($(UNAME_S),Darwin)
+	# Configuration pour macOS
+	MLX_DIR = minilibx_opengl_20191021
+	MLX_LIB = $(MLX_DIR)/libmlx.a
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+	CFLAGS += -D MACOS=1
+	OS_MSG = macOS 🍎
 endif
 
 # Ajouter le répertoire MLX aux includes
