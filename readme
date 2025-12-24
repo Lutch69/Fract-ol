@@ -4,7 +4,7 @@
 
 Un explorateur de fractales avancé et performant écrit en C. Ce projet va au-delà du sujet basique en proposant 5 types de fractales, une gestion des couleurs logarithmique HSV et une interface graphique (HUD) pour une expérience utilisateur fluide.
 
-![Aperçu du projet](../../../julia.png)
+![Aperçu du projet](img/Kap_julia.gif)
 
 
 ## 📑 Table des Matières
