@@ -1,11 +1,10 @@
 # 🎨 Fract-ol
 
-![Badge Score](https://img.shields.io/badge/Score-100%2F100-success?style=for-the-badge&logo=42) ![Badge Langage](https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c) ![Badge Library](https://img.shields.io/badge/Library-MiniLibX-orange?style=for-the-badge)
+![Badge Score](https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge&logo=42) ![Badge Langage](https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c) ![Badge Library](https://img.shields.io/badge/Library-MiniLibX-orange?style=for-the-badge)
 
 Un explorateur de fractales avancé et performant écrit en C. Ce projet va au-delà du sujet basique en proposant 5 types de fractales, une gestion des couleurs logarithmique HSV et une interface graphique (HUD) pour une expérience utilisateur fluide.
 
 ![Aperçu du projet](img/Kap_julia.gif)
-
 
 ## 📑 Table des Matières
 - [Aperçu](#-aperçu)
@@ -26,16 +25,42 @@ L'objectif de Fract-ol est de créer un logiciel de rendu graphique capable de g
 ## 🌀 Liste des Fractales
 Ce projet supporte 5 fractales distinctes :
 
-1.  **Mandelbrot** : L'ensemble classique et ses motifs infinis.
+<div align="center">
+
+### 1. Mandelbrot
+*L'ensemble classique et ses motifs infinis.*
+
 ![Aperçu Mandelbrot](img/mandelbrot.png)
-2.  **Julia** : Dynamique et changeante selon les paramètres d'entrée.
+
+<br>
+
+### 2. Julia
+*Dynamique et changeante selon les paramètres d'entrée.*
+
 ![Aperçu Julia](img/julia.png)
-3.  **Burning Ship** : Une variante asymétrique ressemblant à un navire en feu.
+
+<br>
+
+### 3. Burning Ship
+*Une variante asymétrique ressemblant à un navire en feu.*
+
 ![Aperçu Burning ship](img/burningship.png)
-4.  **Phoenix** : Une fractale aux motifs plus courbés et organiques.
+
+<br>
+
+### 4. Phoenix
+*Une fractale aux motifs plus courbés et organiques.*
+
 ![Aperçu Phoenix](img/phoenix.png)
-5.  **Tricorn** : Aussi appelée "Mandelbar", une variation géométrique de Mandelbrot.
+
+<br>
+
+### 5. Tricorn
+*Aussi appelée "Mandelbar", une variation géométrique de Mandelbrot.*
+
 ![Aperçu Tricorn](img/tricorn.png)
+
+</div>
 
 ## 🚀 Installation
 
@@ -45,6 +70,8 @@ Ce projet supporte 5 fractales distinctes :
 * Les librairies X11 (généralement préinstallées ou disponibles via le gestionnaire de paquets).
 
 ### Compilation
+Cloner le dépôt et compiler avec les bonus :
+
 ```bash
 git clone [https://github.com/Lutch69/Fract-ol.git](https://github.com/Lutch69/Fract-ol.git)
 cd Fract-ol
