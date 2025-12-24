@@ -27,10 +27,15 @@ L'objectif de Fract-ol est de créer un logiciel de rendu graphique capable de g
 Ce projet supporte 5 fractales distinctes :
 
 1.  **Mandelbrot** : L'ensemble classique et ses motifs infinis.
+![Aperçu Mandelbrot](img/mandelbrot.png)
 2.  **Julia** : Dynamique et changeante selon les paramètres d'entrée.
+![Aperçu Julia](img/julia.png)
 3.  **Burning Ship** : Une variante asymétrique ressemblant à un navire en feu.
+![Aperçu Burning ship](img/burningship.png)
 4.  **Phoenix** : Une fractale aux motifs plus courbés et organiques.
+![Aperçu Phoenix](img/phoenix.png)
 5.  **Tricorn** : Aussi appelée "Mandelbar", une variation géométrique de Mandelbrot.
+![Aperçu Tricorn](img/tricorn.png)
 
 ## 🚀 Installation
 
@@ -43,4 +48,4 @@ Ce projet supporte 5 fractales distinctes :
 ```bash
 git clone [https://github.com/Lutch69/Fract-ol.git](https://github.com/Lutch69/Fract-ol.git)
 cd Fract-ol
-make
+make bonus
